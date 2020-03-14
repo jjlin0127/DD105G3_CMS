@@ -1,0 +1,36 @@
+// Import styles 原始路徑
+// @import "node_modules/@coreui/coreui/scss/coreui";
+// 修改路徑
+@import "../../vendors/coreui/coreui.scss";
+
+
+//login.html
+.loginBackgroud{
+    background-image: url("../../../images/cms/sky.jpg");
+    background-size: cover;
+}
+
+.loginZone{
+    box-shadow: 0 0 20px #cac6c6;
+}
+
+.loginTitle{
+    margin-bottom: 20px;
+}
+
+.loginBtn{
+    text-align: center;
+}
+
+//index.html
+.headShot{
+    margin-right: 25px;
+}
+
+//administrator.html
+
+.authorityBtn{
+    width: 60px;
+    display: inline-block;
+    margin: 8px;
+}
