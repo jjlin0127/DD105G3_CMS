@@ -1,8 +1,10 @@
 <?php
 try{
   require_once("connectHomeserver.php");
-  $sql = "select * from `administrator` where adminId = :adminId and adminPsw = :adminPsw";
-  $admin = $pdo->prepare($sql);
+
+  $sql1 = "select * from `administrator` 
+          where (adminId = :adminId) and (adminPsw = :adminPsw)";
+  $admin = $pdo->prepare($sql1);
   $admin -> bindValue(":adminId", $_POST["adminId"]);
   $admin -> bindValue(":adminPsw", $_POST["adminPsw"]);
   $admin -> execute();
@@ -18,10 +20,15 @@ try{
     $_SESSION["adminId"] = $adminRow["adminId"];
     $_SESSION["adminAuthority"] = $adminRow["adminAuthority"];
 
-    //送出登入者的姓名資料
-    // $admin = ["adminNo"=>$_SESSION["adminNo"], "adminId"=>$_SESSION["adminId"], "adminAuthority"=>$_SESSION["adminAuthority"]];
-    // echo json_encode($admin);
-
+    date_default_timezone_set('Asia/Taipei');
+    $lastLoginTime = date('Y-m-d H:i:s', time());
+    $sql2 = "update `administrator` set `lastLoginTime` = :lastLoginTime
+            where (adminId = :adminId)";
+    $loginTime = $pdo->prepare($sql2);
+    $loginTime -> bindValue(":adminId", $_POST["adminId"]);
+    $loginTime -> bindValue(":lastLoginTime", $lastLoginTime);
+    $loginTime -> execute();
+    
   }
 }catch(PDOException $e){
   echo $e->getMessage();

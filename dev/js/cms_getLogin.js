@@ -24,6 +24,10 @@ function cms_getLoginInfo(){
       admin = JSON.parse(xhr.responseText);
       if(admin.adminId){
         $id("adminName").innerText = admin.adminId + ' 您好';
+        if(admin.adminAuthority == "2"){
+          $id('adminNav').classList.add('noAuthority');
+          $id('adminNav').nextElementSibling.classList.add('noAuthority');
+        }
       }else{
         window.location.href = "cms_login.html";
       }
