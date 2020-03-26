@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_article.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -40,18 +41,18 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <table class="table text-center">
+                <table class="table table-responsive-sm table-sm">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">檢舉編號</th>
                             <th scope="col" class="tableTitle">話題編號</th>
                             <th scope="col" class="tableTitle">話題內容</th>
                             <th scope="col" class="tableTitle">檢舉原因</th>
-                            <th scope="col" class="tableTitle">檢舉會員</th>
+                            <th scope="col" class="tableTitle">檢舉時間</th>
                             <th scope="col" class="tableTitle">是否屏蔽</th>
                         </tr>
                     </thead>
-                    <tbody id="adminTable" class="card-body">
+                    <tbody id="articleTable" class="card-body">
+                      
                     </tbody>
                 </table>
             </div>
@@ -80,5 +81,6 @@
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_article.js"></script>
 </body>
 </html>

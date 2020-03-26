@@ -13,7 +13,7 @@ function loadAdminData(){
         //     alert(xhr.status);
         // };
     };
-    xhr.open("GET", "./php/getAdminData.php", true);
+    xhr.open("GET", "./php/cms_getAdminData.php", true);
     xhr.send();
 };
 
@@ -75,7 +75,7 @@ function readInAdmin(adminArr){
             <td>
                 <input type="text" class="adminPsw" value="${admin.adminPsw}">
             </td>
-            <td id="lastLoginTime">
+            <td class="lastLoginTime">
                 ${admin.lastLoginTime}
             </td>` +
             adminAutorityStr +
@@ -94,10 +94,11 @@ function readInAdmin(adminArr){
 };
 
 function deleteAdmin(chosedAdmin){
-    editConfirm = document.getElementById('editConfirm');
-    editConfirm.classList.remove('hidden');
+    deleteConfirm = document.getElementById('deleteConfirm');
+    deleteConfirm.classList.remove('hidden');
     document.getElementById('cancel_delete_btn').addEventListener('click', function(){
         deleteConfirm.classList.add('hidden');
+
     });
 
     document.getElementById('submit_delete_btn').addEventListener('click', function(){
@@ -107,23 +108,50 @@ function deleteAdmin(chosedAdmin){
         xhr.onload = function(){
             if(xhr.status == 200){
                 deleteConfirm.classList.add('hidden');
-                alert("刪除帳號成功");
+                alert("刪除成功");
                 loadAdminData();
             }else{
                 alert(xhr.status)
             };
         };
-        xhr.open("POST", "./php/deleteAdmin.php", true);
+        xhr.open("POST", "./php/cms_deleteAdmin.php", true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            xhr.send(data_info);
+        xhr.send(data_info);
     });
 };
 
-// function editAdmin(chosedAdmin, chosedAdminId, chosedAdminPsw, chosedAdminAuthority){
-//     document.getElementById('cancel_delete_btn').addEventListener('click', function(){
-//         deleteConfirm.classList.add('hidden');
-//     });
-// };
+function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority){
+    editConfirm = document.getElementById('editConfirm');
+    editConfirm.classList.remove('hidden');
+    document.getElementById('cancel_edit_btn').addEventListener('click', function(){
+        editConfirm.classList.add('hidden');
+    });
+
+    document.getElementById('submit_edit_btn').addEventListener('click', function(){
+        if(chosedAdminId == "" || chosedAdminPsw == ""){
+            alert("帳號名稱和密碼且需填寫");
+        }else{
+            let adminNo = chosedAdminNo.substr(7);
+            let adminId = chosedAdminId;
+            let adminPsw = chosedAdminPsw;
+            let adminAuthority = chosedAdminAuthority;
+            let data_info = `adminNo=${adminNo}&adminId=${adminId}&adminPsw=${adminPsw}&adminAuthority=${adminAuthority}`;
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                if(xhr.status == 200){
+                    editConfirm.classList.add('hidden');
+                    alert("編輯完成");
+                    loadAdminData();
+                }else{
+                    alert(xhr.status)
+                };
+            };
+            xhr.open("POST", "./php/cms_editAdmin.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.send(data_info);
+        };
+    });
+};
 
 function AddAdminCol(){
     let adminTable = document.getElementById('adminTable');
@@ -146,21 +174,59 @@ function AddAdminCol(){
       </select>
     </td>
     <td>
-      <button type="button" class="btn btn-pill btn-primary btn-xl btnEditAdmin">編輯</button>
+      <button type="button" class="btn btn-pill btn-primary btn-xl" id="btnAddAdmin">新增</button>
     </td>
     <td>
-      
+        <button type="button" class="btn btn-pill btn-danger btn-xl" id="btnCancelAddAdmin">刪除</button>
     </td>
     `;
-
     adminCol.innerHTML = adminStr;
     adminTable.appendChild(adminCol);
-    doFirst();
+    btnAddAdmin = document.getElementById('btnAddAdmin');
+    btnAddAdmin.addEventListener('click', function(){
+        AddAdmin();
+    });
+    document.getElementById('btnCancelAddAdmin').addEventListener('click', function(){
+        adminTable.removeChild(adminTable.lastChild);
+    });
+};
+
+function AddAdmin(){
+    addConfirm = document.getElementById('addConfirm');
+    addConfirm.classList.remove('hidden');
+    document.getElementById('cancel_add_btn').addEventListener('click', function(){
+        addConfirm.classList.add('hidden');
+    });
+
+    document.getElementById('submit_add_btn').addEventListener('click', function(){
+        let adminId = btnAddAdmin.parentNode.parentNode.getElementsByClassName('adminId')[0].value;
+        let adminPsw = btnAddAdmin.parentNode.parentNode.getElementsByClassName('adminPsw')[0].value;
+        let adminAuthority = btnAddAdmin.parentNode.parentNode.querySelector('option:checked').value;
+        // console.log(adminId, adminPsw, adminAuthority);
+        if(adminId == "" || adminPsw == ""){
+            alert("帳號名稱和密碼且需填寫");
+        }else{
+            let data_info = `adminId=${adminId}&adminPsw=${adminPsw}&adminAuthority=${adminAuthority}`;
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                if(xhr.status == 200){
+                    addConfirm.classList.add('hidden');
+                    alert("新增成功");
+                    loadAdminData();
+                }else{
+                    alert(xhr.status)
+                };
+            };
+            xhr.open("POST", "./php/cms_addAdmin.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xhr.send(data_info);
+        };
+    });
 };
 
 function doFirst(){
-    let btnAddAdmin = document.getElementById('btnAddAdmin');
-    btnAddAdmin.addEventListener('click', AddAdminCol);
+    let btn_add_admin = document.getElementById('btn_add_admin');
+    btn_add_admin.addEventListener('click', AddAdminCol);
 
     let btnDelAdmin = document.getElementsByClassName('btnDelAdmin');
     for(let i=0; i<btnDelAdmin.length; i++){
@@ -175,27 +241,11 @@ function doFirst(){
     let btnEditAdmin = document.getElementsByClassName('btnEditAdmin');
     for(let j=0; j<btnEditAdmin.length; j++){
         btnEditAdmin[j].addEventListener('click', function(){
-            var chosedAdmin = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
+            var chosedAdminNo = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
             var chosedAdminId = this.parentNode.parentNode.getElementsByClassName('adminId')[0].value;
             var chosedAdminPsw = this.parentNode.parentNode.getElementsByClassName('adminPsw')[0].value;
             var chosedAdminAuthority = this.parentNode.parentNode.querySelector('option:checked').value;
-            var lastLoginTime = this.parentNode.parentNode.querySelector('#lastLoginTime').innerText;
-            // console.log(chosedAdmin, chosedAdminAuthority);
-            if(lastLoginTime){
-                let allAdminAdminAuthority = document.getElementsByClassName('adminAuthority');
-                let authorityArr = [];
-                for(let k=0; k<allAdminAdminAuthority.length; k++){
-                    authorityArr.push(allAdminAdminAuthority[k].selectedIndex);
-                };
-                if(authorityArr.indexOf(0) == -1){
-                    alert("至少需要一位最高權限管理員");
-                }else{
-                    editAdmin(chosedAdmin, chosedAdminId, chosedAdminPsw, chosedAdminAuthority);
-                }
-            }else{
-                AddAdminCol(chosedAdminId, chosedAdminPsw, chosedAdminAuthority);
-            };
-            
+            editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority);
         });
     };
 };
