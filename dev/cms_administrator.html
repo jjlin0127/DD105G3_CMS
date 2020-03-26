@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_administrator.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -21,7 +22,6 @@
        <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
        <!-- 中間內容 -->
        <div class="container-fluid">
@@ -40,29 +40,46 @@
         </div>
         <div class="card">
             <div class="card-header justify-content-end d-flex">
-                    <button id="btnNewAdmin" type="button" class="btn btn-warning mr-1">+新增管理員帳號</button>
+                    <button type="button" class="btn btn-warning mr-1" id="btnAddAdmin" >+新增管理員帳號</button>
             </div>
             <div class="card-body">
-                <table class="table text-center">
+                <table class="table table-responsive-sm table-sm">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">管理員編號</th>
-                            <th scope="col" class="tableTitle">管理員名稱</th>
-                            <th scope="col" class="tableTitle">管理員密碼</th>
-                            <th scope="col" class="tableTitle">管理員權限</th>
-                            <th scope="col" class="tableTitle">管理員權限設定</th>
+                            <th scope="col" class="tableTitle">帳號名稱</th>
+                            <th scope="col" class="tableTitle">密碼</th>
+                            <th scope="col" class="tableTitle">上次登入時間</th>
+                            <th scope="col" class="tableTitle">權限</th>
+                            <th scope="col" class="tableTitle">管理員設定編輯</th>
                             <th scope="col" class="tableTitle">管理員帳號刪除</th>
                         </tr>
                     </thead>
                     <tbody id="adminTable" class="card-body">
+                      
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-       <!-- end -->
-
       </div>
+      <!-- end -->
+      <!-- confirm popbox start -->
+      <div id="deleteConfirm" class="deleteConfirm hidden">
+        <h5>是否確定刪除</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_delete_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_delete_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
+      <!-- confirm popbox start -->
+      <div id="editConfirm" class="editConfirm hidden">
+        <h5>是否確定編輯</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_edit_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_edit_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
     </main>
   </div>
   <footer class="app-footer">
@@ -83,5 +100,6 @@
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_administrator.js"></script>
 </body>
 </html>
