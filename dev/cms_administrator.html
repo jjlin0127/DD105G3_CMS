@@ -6,199 +6,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>後台管理系統 | 天然甘</title>
   <!-- Icons-->
-  <link href="css/vendors/simple-line-icons/simple-line-icons.css" rel="stylesheet">
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_administrator.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
  <!-- top_header -->
-  <header class="app-header navbar">
-    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-      <img class="navbar-brand-full" src="./images/Logo.svg" width="160">
-    </a>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link headShot" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img class="img-avatar" src="./images/cms/profile_picture/9.jpg">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-header text-center">
-            <strong>管理員名稱</strong>
-          </div>
-          <a class="dropdown-item logoutBtn" href="cms_login.html">
-            <i class="fa fa-lock"></i> Logout</a>
-        </div>
-      </li>
-    </ul>
-  </header>
+ @@include('layout/top_header.html')
   <div class="app-body">
     <div class="sidebar">
        <!-- sidebar  menu -->
-      <nav class="sidebar-nav">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="cms_index.html">
-              <i class="nav-icon icon-home"></i> 後台首頁
-            </a>
-          </li>
-          <li class="nav-title">會員</li>
-          <li class="nav-item">
-            <a class="nav-link" href="cms_member.html">
-              <i class="nav-icon icon-people"></i> 會員資料管理</a>
-          </li>
-          <li class="nav-title">商品</li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-puzzle"></i> 一般商品管理</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="cms_prodInfo.html">
-                  <i class="nav-icon icon-puzzle"></i> 商品資料</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cms_prodReport.html">
-                  <i class="nav-icon icon-puzzle"></i> 商品評價檢舉</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> 客製商品管理</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="cms_fruitType.html">
-                  <i class="nav-icon icon-cursor"></i> 自由配果甘種類</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cms_boxMaterial.html">
-                  <i class="nav-icon icon-cursor"></i> 客製禮盒素材</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-title">訂單</li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-star"></i> 訂單管理</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="cms_generalOrder.html">
-                  <i class="nav-icon icon-star"></i> 一般訂單
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cms_customizedOrder.html">
-                  <i class="nav-icon icon-star"></i> 客製訂單</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-title">遊戲</li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-game-controller"></i> 遊戲管理</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="cms_recommendation.html">
-                  <i class="nav-icon icon-game-controller"></i> 問答結果推薦商品</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cms_gamePointRule.html">
-                  <i class="nav-icon icon-game-controller"></i> 遊戲獎勵點數規則</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-title">討論區</li>
-          <li class="nav-item">
-            <a class="nav-link" href="cms_articleReport.html">
-              <i class="nav-icon icon-list"></i> 文章檢舉
-            </a>
-          </li>
-          <li class="nav-title">客服機器人</li>
-          <li class="nav-item">
-            <a class="nav-link" href="cms_faqAndKeyword.html">
-              <i class="nav-icon icon-support"></i> 問題及關鍵字
-            </a>
-          </li>
-          <li class="divider"></li>
-          <li class="nav-title">管理員</li>
-          <li class="nav-item">
-            <a class="nav-link" href="cms_administrator.html">
-              <i class="nav-icon icon-user"></i> 管理員帳號管理
-            </a>
-          </li>
-        </ul>
-      </nav>
+       @@include('layout/sidebar_nav.html')
+       <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
        <!-- 中間內容 -->
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">管理員帳號</div>
-            <button class="btn btn-block btn-primary addAdministratorBtn" type="button">新增管理員帳號</button>
-            <div class="card-body">
-              <table class="table table-responsive-sm table-sm">
-                <thead>
-                  <tr>
-                    <th>編號</th>
-                    <th>管理員帳號</th>
-                    <th>管理員身份</th>
-                    <th>管理員名稱</th>
-                    <th>操作</th>
-                    <th>狀態</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>最高權限</td>
-                    <td></td>
-                    <td>
-                      <button class="btn btn-block btn-success authorityBtn" type="button">編輯</button>
-                      <button class="btn btn-block btn-danger authorityBtn" type="button">刪除</button>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>一般權限</td>
-                    <td></td>
-                    <td>
-                      <button class="btn btn-block btn-success authorityBtn" type="button">編輯</button>
-                      <button class="btn btn-block btn-danger authorityBtn" type="button">刪除</button>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>一般權限</td>
-                    <td></td>
-                    <td>
-                      <button class="btn btn-block btn-success authorityBtn" type="button">編輯</button>
-                      <button class="btn btn-block btn-danger authorityBtn" type="button">刪除</button>
-                    </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+       <div class="container-fluid">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">天然甘</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">管理員帳號管理</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="card">
+            <div class="card-header justify-content-end d-flex">
+                    <button type="button" class="btn btn-warning mr-1" id="btnAddAdmin" >+新增管理員帳號</button>
             </div>
-          </div>
+            <div class="card-body">
+                <table class="table table-responsive-sm table-sm">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col" class="tableTitle">帳號名稱</th>
+                            <th scope="col" class="tableTitle">密碼</th>
+                            <th scope="col" class="tableTitle">上次登入時間</th>
+                            <th scope="col" class="tableTitle">權限</th>
+                            <th scope="col" class="tableTitle">管理員設定編輯</th>
+                            <th scope="col" class="tableTitle">管理員帳號刪除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTable" class="card-body">
+                      
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
-       <!-- end -->
-
+      <!-- end -->
+      <!-- confirm popbox start -->
+      <div id="deleteConfirm" class="deleteConfirm hidden">
+        <h5>是否確定刪除</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_delete_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_delete_btn">確定</button>
+          </div>
       </div>
+      <!-- confirm end -->
+      <!-- confirm popbox start -->
+      <div id="editConfirm" class="editConfirm hidden">
+        <h5>是否確定編輯</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_edit_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_edit_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
     </main>
   </div>
   <footer class="app-footer">
@@ -213,7 +94,12 @@
   </footer>
   <!-- CoreUI and necessary plugins-->
   <script src="js/vendors/jquery/jquery.min.js"></script>
-  <script src="js/vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="js/vendors/coreui/coreui.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_administrator.js"></script>
 </body>
 </html>

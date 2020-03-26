@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台登入 | 天然甘</title>
     <!-- Icons-->
-    <link href="css/vendors/simple-line-icons/simple-line-icons.css" rel="stylesheet">
+    <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <!-- Main styles for this application-->
     <link href="css/page/cms/cms.css" rel="stylesheet">
 </head>
@@ -23,7 +23,7 @@
                       <i class="icon-user"></i>
                     </span>
                   </div>
-                  <input class="form-control" type="text" placeholder="Username">
+                  <input class="form-control" type="text" placeholder="User ID" id="adminId">
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -31,11 +31,14 @@
                       <i class="icon-lock"></i>
                     </span>
                   </div>
-                  <input class="form-control" type="password" placeholder="Password">
+                  <input class="form-control" type="password" placeholder="User Password" id="adminPsw">
                 </div>
                 <div class="row">
-                  <div class="col-12 loginBtn">
-                    <button class="btn btn-primary px-4" type="button" onclick="location.href='cms_administrator.html'">登入</button>
+                  <div class="col-6 col-sm-6 col-md-6 col-xl mb-3 mb-xl-0">
+                    <button class="btn btn-block btn-primary" type="button" id="btnLogin">登入</button>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-6 col-xl mb-3 mb-xl-0">
+                    <button class="btn btn-block btn-outline-primary" type="button" onclick="location.href='index.html'">前台首頁</button>
                   </div>
                 </div>
               </div>
@@ -46,7 +49,47 @@
     </div>
     <!-- CoreUI and necessary plugins-->
     <script src="js/vendors/jquery/jquery.min.js"></script>
-    <script src="js/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="js/vendors/coreui/coreui.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/pace-progress/pace.min.js"></script>
+    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script>
+      function $id(id){
+	      return document.getElementById(id);
+      };
+
+      function cms_login(){
+        let adminId = $id("adminId").value;
+        let adminPsw = $id("adminPsw").value; 
+        let data_info = `adminId=${adminId}&adminPsw=${adminPsw}`;
+
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if(xhr.status == 200){
+            if(xhr.responseText.indexOf('error') == -1){
+              window.location.href = "cms_index.html";
+            }else{
+              alert('帳密錯誤，請重新輸入!');
+            }
+          }else{
+            alert(xhr.status);
+          };
+        };
+        xhr.open("Post", "php/cms_login.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send(data_info);
+
+        $id('adminId').value = '';
+        $id('adminPsw').value = '';
+      }
+
+      function doFirst(){
+        // getLoginInfo();
+        $id('btnLogin').addEventListener('click', cms_login);
+      };
+
+      window.addEventListener('load', doFirst);
+    </script>
   </body>
 </html>

@@ -1,8 +1,7 @@
 // Import styles 原始路徑
-// @import "node_modules/@coreui/coreui/scss/coreui";
+@import "node_modules/@coreui/coreui/scss/coreui";
 // 修改路徑
-@import "../../vendors/coreui/coreui.scss";
-
+// @import "../../vendors/coreui/coreui.scss";
 
 //login.html
 .loginBackgroud{
@@ -18,19 +17,18 @@
     margin-bottom: 20px;
 }
 
-.loginBtn{
-    text-align: center;
+//siderbar
+.noAuthority{
+    display: none; 
 }
 
 //index.html
-.headShot{
-    margin-right: 25px;
-}
+// .headShot{
+//     margin-right: 25px;
+// }
 
 //administrator.html
 
-.authorityBtn{
-    width: 60px;
-    display: inline-block;
-    margin: 8px;
-}
+// .tableTitle{
+//     background-color: antiquewhite;
+// }

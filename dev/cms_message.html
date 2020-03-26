@@ -16,7 +16,7 @@
  @@include('layout/top_header.html')
   <div class="app-body">
     <div class="sidebar">
-       <!-- sidebar  menu start -->
+       <!-- sidebar  menu -->
        @@include('layout/sidebar_nav.html')
        <!-- sidebar  menu end -->
     </div>
@@ -24,15 +24,39 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-       <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">後台首頁</div>
-            <div class="card-body">
-            </div>
-          </div>
+       <div class="container-fluid">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">天然甘</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">留言檢舉管理</a>
+                    </li>
+                </ol>
+            </nav>
         </div>
-       </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table text-center">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col" class="tableTitle">檢舉編號</th>
+                            <th scope="col" class="tableTitle">留言編號</th>
+                            <th scope="col" class="tableTitle">留言內容</th>
+                            <th scope="col" class="tableTitle">檢舉原因</th>
+                            <th scope="col" class="tableTitle">檢舉會員</th>
+                            <th scope="col" class="tableTitle">是否屏蔽</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTable" class="card-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
        <!-- end -->
 
       </div>
@@ -40,9 +64,13 @@
   </div>
   <footer class="app-footer">
     <div>
-      <a href="#">Natural Sweet</a>
+      <a href="#">天然甘</a>
       <span>&copy; 2020</span>
     </div>
+    <!-- <div class="ml-auto">
+      <span>Powered by</span>
+      <a href="https://coreui.io">CoreUI</a>
+    </div> -->
   </footer>
   <!-- CoreUI and necessary plugins-->
   <script src="js/vendors/jquery/jquery.min.js"></script>
