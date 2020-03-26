@@ -40,7 +40,7 @@
         </div>
         <div class="card">
             <div class="card-header justify-content-end d-flex">
-                    <button type="button" class="btn btn-warning mr-1" id="btnAddAdmin" >+新增管理員帳號</button>
+                    <button type="button" class="btn btn-warning mr-1" id="btn_add_admin" >+新增管理員帳號</button>
             </div>
             <div class="card-body">
                 <table class="table table-responsive-sm table-sm">
@@ -62,7 +62,7 @@
         </div>
       </div>
       <!-- end -->
-      <!-- confirm popbox start -->
+      <!-- delete confirm popbox start -->
       <div id="deleteConfirm" class="deleteConfirm hidden">
         <h5>是否確定刪除</h5>
           <div class="confirm_btns">
@@ -71,7 +71,16 @@
           </div>
       </div>
       <!-- confirm end -->
-      <!-- confirm popbox start -->
+      <!-- add confirm popbox start -->
+      <div id="addConfirm" class="addConfirm hidden">
+        <h5>是否確定新增</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_add_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_add_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
+      <!-- edit confirm popbox start -->
       <div id="editConfirm" class="editConfirm hidden">
         <h5>是否確定編輯</h5>
           <div class="confirm_btns">
