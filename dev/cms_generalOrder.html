@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_article.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -24,7 +25,7 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-       <div class="container-fluid">
+      <div class="container-fluid">
         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -33,7 +34,7 @@
                         <a href="#">天然甘</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">會員帳號管理</a>
+                        <a href="#">一般訂單管理</a>
                     </li>
                 </ol>
             </nav>
@@ -43,24 +44,43 @@
                 <table class="table table-responsive-sm table-sm">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">編號</th>
-                            <th scope="col" class="tableTitle">帳號</th>
-                            <th scope="col" class="tableTitle">姓名</th>
-                            <th scope="col" class="tableTitle">暱稱</th>
-                            <th scope="col" class="tableTitle">電話</th>
-                            <th scope="col" class="tableTitle">點數</th>
-                            <th scope="col" class="tableTitle">是否停權</th>
+                            <th scope="col" class="tableTitle">訂單編號</th>
+                            <th scope="col" class="tableTitle">會員編號</th>
+                            <th scope="col" class="tableTitle">訂購日期</th>
+                            <th scope="col" class="tableTitle">總金額</th>
+                            <th scope="col" class="tableTitle">訂單狀態</th>
                         </tr>
                     </thead>
-                    <tbody id="memberTable" class="card-body">
-                        
+                    <tbody id="orderTable" class="card-body">
+                      <tr>
+                          <td class="ordNo">
+                            1
+                          </td>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            2020-03-14
+                          </td>
+                          <td>
+                            360
+                          </td>
+                          <td>
+                            <select class="form-control ordStatus">
+                                <option name="ordStatus[]" value="0" selected="">處理中</option>
+                                <option name="ordStatus[]" value="1">已確認</option>
+                                <option name="ordStatus[]" value="2">已完成</option>
+                                <option name="ordStatus[]" value="3">已取消</option>
+                            </select>
+                          </td>
+                      </tr>
                     </tbody>
                 </table>
             </div>
         </div>
       </div>
        <!-- end -->
-       
+
       </div>
       <!-- alert start -->
       <div id="alertBox" class="alertBox hidden">
@@ -82,13 +102,12 @@
   </footer>
   <!-- CoreUI and necessary plugins-->
   <script src="js/vendors/jquery/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/pace-progress/pace.min.js"></script>
-    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <script src="js/cms_getLogin.js"></script>
-    <script src="js/cms_member.js"></script>
-
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_article.js"></script>
 </body>
 </html>
