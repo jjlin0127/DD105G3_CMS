@@ -69,35 +69,64 @@ function readInFruitType(fruitArr){
                 </td>`;
             break;
         };
-        if(fruit.fruitTypePic == ){
-            fruitImgStr =``;
+        if(fruit.fruitTypePic == null){
+            fruitImgStr =`
+            <td>
+                <label for="upFile"><img class="imgPreview" src="" width="80"></label>
+                <input type="file" name="upFile" class="upFile">
+            </td>`;
         }else{
-
-        }
-        adminStr +=
+            fruitImgStr =`
+            <td>
+                <label for="upFile"><img class="imgPreview" src="./images/cusFruits/${fruitTypePic}" width="80"></label>
+                <input type="file" name="upFile" class="upFile">
+            </td>`;
+        };
+        if(fruit.fruitTypeStatus == "0"){
+            fruitOnOffStr =`
+            <td>
+                <label class="switch switch-3d switch-danger">
+                    <input class="switch-input btnOnOffItem" type="checkbox">
+                    <span class="switch-slider"></span>
+                </label>
+            </td>`;
+        }else{
+            fruitOnOffStr =`
+            <td>
+                <label class="switch switch-3d switch-danger">
+                    <input class="switch-input btnOnOffItem" type="checkbox" checked="">
+                    <span class="switch-slider"></span>
+                </label>
+            </td>`;
+        };
+        fruitStr +=
         `
         <tr>
-            <td>
-                <input type="text" class="adminId" value="${admin.adminId}">
-            </td>
-            <td>
-                <input type="text" class="adminPsw" value="${admin.adminPsw}">
-            </td>
-            <td class="lastLoginTime">
-                ${admin.lastLoginTime}
+            <td class="fruitTypeNo">
+                ${fruit.fruitTypeNo}
             </td>` +
-            adminAutorityStr +
+            healthTypeStr + 
             `
             <td>
-                <button type="button" class="btn btn-pill btn-primary btn-xl btnEditAdmin">編輯</button>
+                ${fruit.fruitTypeName}
             </td>
-            <input type="hidden" id="adminNo${admin.adminNo}">` +
-            adminDelStr +
-        `</tr>
+            <td>
+                ${fruit.fruitUnitPrice}
+            </td>` +
+            fruitImgStr +
+            fruitOnOffStr +
+            `
+            <td>
+                <button type="button" class="btn btn-pill btn-primary btn-xl btnEditItem">編輯</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-pill btn-danger btn-xl btnDelItem">刪除</button>
+            </td>
+        </tr>
         `;
     });
-    let adminTable = document.getElementById('adminTable');
-    adminTable.innerHTML = adminStr;
+    let fruitTypeTable = document.getElementById('fruitTypeTable');
+    fruitTypeTable.innerHTML = fruitStr;
     doFirst();
 };
 
@@ -179,41 +208,53 @@ function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuth
     });
 };
 
-function AddAdminCol(){
-    let adminTable = document.getElementById('adminTable');
-    let adminCol = document.createElement('tr');
-    let adminStr = 
+function AddItemCol(){
+    let fruitTypeTable = document.getElementById('fruitTypeTable');
+    let fruitTypeCol = document.createElement('tr');
+    let fruitTypeStr = 
     `
-    <td>
-      <input type="text" class="adminId" value="">
+    <td class="fruitTypeNo">
+        
     </td>
     <td>
-      <input type="text" class="adminPsw" value="">
+        <select class="form-control selectHealthType">
+            <option name="healthType[]" value="1" selected="">幫助消化</option>
+            <option name="healthType[]" value="2">活化大腦</option>
+            <option name="healthType[]" value="3">保護血管</option>
+            <option name="healthType[]" value="4">其它</option>
+        </select>
     </td>
     <td>
-
+        <input type="text" class="fruitTypeName" value="">
     </td>
     <td>
-      <select class="form-control adminAuthority">
-        <option name="adminAuthority[]" value="1">最高</option>
-        <option name="adminAuthority[]" value="2" selected="">一般</option>
-      </select>
+        <input type="text" class="fruitUnitPrice" value="">
     </td>
     <td>
-      <button type="button" class="btn btn-pill btn-primary btn-xl" id="btnAddAdmin">新增</button>
+        <label for="upFile"><img class="imgPreview" src="" width="80"></label>
+        <input type="file" name="upFile" class="upFile" style="">
     </td>
     <td>
-        <button type="button" class="btn btn-pill btn-danger btn-xl" id="btnCancelAddAdmin">刪除</button>
+        <label class="switch switch-3d switch-danger">
+            <input class="switch-input btnOnOffItem" type="checkbox">
+            <span class="switch-slider"></span>
+        </label>
+    </td>
+    <td>
+    <button type="button" class="btn btn-pill btn-primary btn-xl" id="btnAddItem">新增</button>
+    </td>
+    <td>
+    <button type="button" class="btn btn-pill btn-danger btn-xl" id="btnCancelAddItem">刪除</button>
     </td>
     `;
-    adminCol.innerHTML = adminStr;
-    adminTable.appendChild(adminCol);
-    btnAddAdmin = document.getElementById('btnAddAdmin');
-    btnAddAdmin.addEventListener('click', function(){
-        AddAdmin();
+    fruitTypeCol.innerHTML = fruitTypeStr;
+    fruitTypeTable.appendChild(fruitTypeCol);
+    btnAddItem = document.getElementById('btnAddItem');
+    btnAddItem.addEventListener('click', function(){
+        AddItem();
     });
-    document.getElementById('btnCancelAddAdmin').addEventListener('click', function(){
-        adminTable.removeChild(adminTable.lastChild);
+    document.getElementById('AddItem').addEventListener('click', function(){
+        fruitTypeTable.removeChild(fruitTypeTable.lastChild);
     });
 };
 
@@ -269,8 +310,8 @@ function doFirst(){
     close_alert_btn.addEventListener('click', function(){
         alertBox.classList.add('hidden');
     });
-    let btn_add_admin = document.getElementById('btn_add_admin');
-    btn_add_admin.addEventListener('click', AddAdminCol);
+    let btn_add_item = document.getElementById('btn_add_item');
+    btn_add_item.addEventListener('click', AddItemCol);
 
     let btnDelAdmin = document.getElementsByClassName('btnDelAdmin');
     for(let i=0; i<btnDelAdmin.length; i++){
