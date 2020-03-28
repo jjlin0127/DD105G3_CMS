@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectHomeserver.php");
+    require_once("connectDeskServer.php");
 
     $sql = "select * from `member`";
     $members = $pdo->query($sql);

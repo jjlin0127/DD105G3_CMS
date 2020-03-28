@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectSchoolServer.php");
+    require_once("connectDeskServer.php");
 
     $sql = "select * from `administrator`";
     $admins = $pdo->query($sql);

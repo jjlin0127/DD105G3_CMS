@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectSchoolServer.php");
+	require_once("connectDeskServer.php");
 
 	$sql = "DELETE FROM `administrator` 
 			where (adminNo = :adminNo)";

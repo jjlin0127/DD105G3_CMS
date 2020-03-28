@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectSchoolServer.php");
+	require_once("connectDeskServer.php");
 
 	$sql = "INSERT INTO `administrator` (`adminId`, `adminPsw`, `adminAuthority`) 
 			values(:adminId, :adminPsw, :adminAuthority)";

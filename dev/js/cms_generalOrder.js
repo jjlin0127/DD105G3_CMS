@@ -9,8 +9,19 @@ function loadGeneralOrder(){
             genOrdArrCopy = JSON.parse(JSON.stringify(genOrdOriArr));
             // console.log(reportMesArrCopy);
             let ordStr = '';
+            let ordPayStr = '';
             let ordStatusStr = '';
             genOrdArrCopy.forEach(function(ord){
+                switch(ord.ordPay){
+                    case "1":
+                        ordPayStr ="<td>貨到付款</td>";
+                    break;
+                    case "2":
+                        ordPayStr ="<td>信用卡</td>";
+                    break;
+                    default:
+                        ordPayStr ="<td>貨到付款</td>";
+                };
                 switch(ord.ordStatus){
                     case "0":
                         ordStatusStr =`
@@ -79,9 +90,19 @@ function loadGeneralOrder(){
                         ${ord.ordDatetime}
                     </td>
                     <td>
-                        ${ord.ordDatetime}
+                        ${ord.ordTotal}
+                    </td>
+                    <td>
+                        ${ord.ordName}
+                    </td>
+                    <td>
+                        ${ord.ordaddr}
                     </td>` +
+                    ordPayStr +
                     ordStatusStr + `
+                    <td>
+                        <button type="button" class="btn btn-pill btn-primary btn-xl btnOrdSubmit">確認</button>
+                    </td>
                 </tr>
                 `;
             });
@@ -96,39 +117,27 @@ function loadGeneralOrder(){
     xhr.send();
 };
 
-function setOrdStatus(reportMesNo, reportStatus){
-    let messageNo = reportMesNo;
-    let mesStatus = reportStatus;
-    let data_info = `messageNo=${messageNo}&mesStatus=${mesStatus}`;
+function setOrdStatus(getOrdNo, getOrdStatus){
+    let ordNo = getOrdNo;
+    let ordStatus = getOrdStatus;
+    // console.log(ordNo, ordStatus);
+    let data_info = `ordNo=${ordNo}&ordStatus=${ordStatus}`;
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            if(mesStatus == "0"){
-                addConfirm.classList.add('hidden');
-                alertBox.classList.remove('hidden');
-                alertMessage.innerText = '已屏蔽該留言！';
-                
-                setTimeout(function(){
-                    alertBox.classList.add('hidden');
-                }, 2000);
-                // alert("已屏蔽該留言");
-                loadGeneralOrder();
-            }else if(mesStatus == "1"){
-                addConfirm.classList.add('hidden');
-                alertBox.classList.remove('hidden');
-                alertMessage.innerText = '已解除屏蔽該留言！';
-                
-                setTimeout(function(){
-                    alertBox.classList.add('hidden');
-                }, 2000);
-                // alert("已解除屏蔽該留言");
-                loadGeneralOrder();
-            }
+            alertBox.classList.remove('hidden');
+            alertMessage.innerText = '已修改該訂單狀態！';
+            setTimeout(function(){
+                alertBox.classList.add('hidden');
+            }, 2000);
+            
+            loadGeneralOrder();
+
         }else{
             alert(xhr.status);
         };
     };
-    xhr.open("POST", "./php/cms_setMesBlockStatus.php", true);
+    xhr.open("POST", "./php/cms_setOrdStatus.php", true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
     xhr.send(data_info);
 };
@@ -140,18 +149,15 @@ function doFirst(){
     close_alert_btn.addEventListener('click', function(){
         alertBox.classList.add('hidden');
     });
-    let btnBlockMes = document.getElementsByClassName('btnBlockMes');
-    for(let i=0; i<btnBlockMes.length; i++){
-        btnBlockMes[i].addEventListener('click', function(){
-            let reportMesNo = this.parentNode.parentNode.parentNode.getElementsByClassName('messageNo')[0].innerText;
-            console.log(reportMesNo);
-            if(this.checked == true){
-                let reportStatus = "0";
-                setMesBlockStatus(reportMesNo, reportStatus);
-            }else{
-                let reportStatus = "1";
-                setMesBlockStatus(reportMesNo, reportStatus);
-            };
+
+    let btnOrdSubmit = document.getElementsByClassName('btnOrdSubmit');
+    for(let i=0; i<btnOrdSubmit.length; i++){
+        btnOrdSubmit[i].addEventListener('click', function(){
+            // let setOrdNo = this.parentNode.parentNode.getElementsByClassName('ordNo')[0].innnerText;
+            let getOrdNo = this.parentNode.parentNode.getElementsByTagName('td')[0].innerText;
+            let getOrdStatus = this.parentNode.parentNode.querySelector('option:checked').value;
+            // console.log(getOrdNo, getOrdStatus);
+            setOrdStatus(getOrdNo, getOrdStatus);
         });
     };
 };

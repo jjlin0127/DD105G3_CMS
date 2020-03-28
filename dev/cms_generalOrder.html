@@ -9,7 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
-  <link href="css/page/cms/cms_article.css" rel="stylesheet">
+  <link href="css/page/cms/cms_main.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -48,11 +48,15 @@
                             <th scope="col" class="tableTitle">會員編號</th>
                             <th scope="col" class="tableTitle">訂購日期</th>
                             <th scope="col" class="tableTitle">總金額</th>
+                            <th scope="col" class="tableTitle">收件人</th>
+                            <th scope="col" class="tableTitle">收件地址</th>
+                            <th scope="col" class="tableTitle">付款方式</th>
                             <th scope="col" class="tableTitle">訂單狀態</th>
+                            <th scope="col" class="tableTitle">確認修改</th>
                         </tr>
                     </thead>
                     <tbody id="orderTable" class="card-body">
-                      <tr>
+                      <!-- <tr>
                           <td class="ordNo">
                             1
                           </td>
@@ -66,14 +70,14 @@
                             360
                           </td>
                           <td>
-                            <select class="form-control ordStatus">
+                            <select class="form-control setOrdStatus">
                                 <option name="ordStatus[]" value="0" selected="">處理中</option>
                                 <option name="ordStatus[]" value="1">已確認</option>
                                 <option name="ordStatus[]" value="2">已完成</option>
                                 <option name="ordStatus[]" value="3">已取消</option>
                             </select>
                           </td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -82,11 +86,18 @@
        <!-- end -->
 
       </div>
+      <!-- edit confirm popbox start -->
+      <!-- <div id="editConfirm" class="editConfirm hidden">
+        <h5>是否確定修改</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_edit_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_edit_btn">確定</button>
+          </div>
+      </div> -->
+      <!-- confirm end -->
+
       <!-- alert start -->
-      <div id="alertBox" class="alertBox hidden">
-        <span id="close_alert_btn">&times;</span>
-        <span id="alertMessage"></span>
-      </div>
+      @@include('layout/alert.html')
       <!-- alert end -->
     </main>
   </div>
@@ -108,6 +119,6 @@
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="js/cms_getLogin.js"></script>
-  <script src="js/cms_article.js"></script>
+  <script src="js/cms_generalOrder.js"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <?php
 try {
-    require_once("connectHomeserver.php");
+    require_once("connectDeskServer.php");
 
-    $sql = "select * from `member`";
-    $members = $pdo->query($sql);
-    $memberRows = $members->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($memberRows);
+    $sql = "select * from `order_general`";
+    $orders = $pdo->query($sql);
+    $orderRows = $orders->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($orderRows);
 
 } catch (PDOException $e) {
 	echo "錯誤行號 : " . $e->getLine() . "<br>";
