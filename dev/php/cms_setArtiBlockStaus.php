@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectHomeserver.php");
+	require_once("connectSchoolServer.php");
 
     $sql1 = "update `article` set artStatus = :artStatus 
             where (articleNo = :articleNo)";

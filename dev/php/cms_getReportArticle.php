@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectHomeserver.php");
+    require_once("connectSchoolServer.php");
 
     $sql = "select * from `article_report` join `article` 
             on (article_report.articleNo = article.articleNo)";
