@@ -116,7 +116,7 @@ function readInReportArti(reportArtiArr){
     doFirst();
 };
 
-function setArtiBlockStaus(reportArtiNo, reportStatus){
+function setArtiBlockStatus(reportArtiNo, reportStatus){
     let articleNo = reportArtiNo;
     let artStatus = reportStatus;
     let data_info = `articleNo=${articleNo}&artStatus=${artStatus}`;
@@ -124,21 +124,40 @@ function setArtiBlockStaus(reportArtiNo, reportStatus){
     xhr.onload = function(){
         if(xhr.status == 200){
             if(artStatus == "0"){
-                alert("已屏蔽該話題");
+                alertBox.classList.remove('hidden');
+                alertMessage.innerText = '已屏蔽該話題！';
+                  
+                setTimeout(function(){
+                    alertBox.classList.add('hidden');
+                }, 2000);
+                // alert("已屏蔽該話題");
                 loadReportArticle();
-            }else
-                alert("已解除屏蔽該話題");
+            }else if(artStatus == "1"){
+                alertBox.classList.remove('hidden');
+                alertMessage.innerText = '已解除屏蔽該話題！';
+                
+                setTimeout(function(){
+                    alertBox.classList.add('hidden');
+                }, 2000);
+                // alert("已解除屏蔽該話題");
                 loadReportArticle();
+            }
         }else{
             alert(xhr.status);
         };
     };
-    xhr.open("POST", "./php/cms_setArtiBlockStaus.php", true);
+    xhr.open("POST", "./php/cms_setArtiBlockStatus.php", true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
     xhr.send(data_info);
 };
 
 function doFirst(){
+    alertBox = document.getElementById('alertBox');
+    alertMessage = document.getElementById('alertMessage');
+    close_alert_btn = document.getElementById('close_alert_btn');
+    close_alert_btn.addEventListener('click', function(){
+        alertBox.classList.add('hidden');
+    });
     let btnBlockArti = document.getElementsByClassName('btnBlockArti');
     for(let i=0; i<btnBlockArti.length; i++){
         btnBlockArti[i].addEventListener('click', function(){
@@ -146,10 +165,10 @@ function doFirst(){
             // console.log(reportArtiNo);
             if(this.checked == true){
                 let reportStatus = "0";
-                setArtiBlockStaus(reportArtiNo, reportStatus);
+                setArtiBlockStatus(reportArtiNo, reportStatus);
             }else{
                 let reportStatus = "1";
-                setArtiBlockStaus(reportArtiNo, reportStatus);
+                setArtiBlockStatus(reportArtiNo, reportStatus);
             };
         });
     };
