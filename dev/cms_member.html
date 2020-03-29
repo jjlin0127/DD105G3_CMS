@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_main.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -24,70 +25,47 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-       <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">會員資料</div>
-            <div class="card-body">
-              <table class="table table-responsive-sm table-sm">
-                <thead>
-                  <tr>
-                    <th>Username</th>
-                    <th>Date registered</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Carwyn Fachtna</td>
-                    <td>2012/01/01</td>
-                    <td>Member</td>
-                    <td>
-                      <span class="badge badge-success">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nehemiah Tatius</td>
-                    <td>2012/02/01</td>
-                    <td>Staff</td>
-                    <td>
-                      <span class="badge badge-danger">Banned</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ebbe Gemariah</td>
-                    <td>2012/02/01</td>
-                    <td>Admin</td>
-                    <td>
-                      <span class="badge badge-secondary">Inactive</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Eustorgios Amulius</td>
-                    <td>2012/03/01</td>
-                    <td>Member</td>
-                    <td>
-                      <span class="badge badge-warning">Pending</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Leopold Gáspár</td>
-                    <td>2012/01/21</td>
-                    <td>Staff</td>
-                    <td>
-                      <span class="badge badge-success">Active</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+       <div class="container-fluid">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">天然甘</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">會員帳號管理</a>
+                    </li>
+                </ol>
+            </nav>
         </div>
-       </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-responsive-sm table-sm">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col" class="tableTitle">編號</th>
+                            <th scope="col" class="tableTitle">帳號</th>
+                            <th scope="col" class="tableTitle">姓名</th>
+                            <th scope="col" class="tableTitle">暱稱</th>
+                            <th scope="col" class="tableTitle">電話</th>
+                            <th scope="col" class="tableTitle">點數</th>
+                            <th scope="col" class="tableTitle">是否停權</th>
+                        </tr>
+                    </thead>
+                    <tbody id="memberTable" class="card-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
        <!-- end -->
        
       </div>
+       <!-- alert start -->
+      @@include('layout/alert.html')
+      <!-- alert end -->
     </main>
   </div>
   <footer class="app-footer">
@@ -108,5 +86,7 @@
     <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
     <script src="js/cms_getLogin.js"></script>
+    <script src="js/cms_member.js"></script>
+
 </body>
 </html>

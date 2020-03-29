@@ -70,10 +70,10 @@ function readInAdmin(adminArr){
         `
         <tr>
             <td>
-                <input type="text" class="adminId" value="${admin.adminId}">
+                <input type="text" class="adminId" value="${admin.adminId}" size="20">
             </td>
             <td>
-                <input type="text" class="adminPsw" value="${admin.adminPsw}">
+                <input type="text" class="adminPsw" value="${admin.adminPsw}" size="20">
             </td>
             <td class="lastLoginTime">
                 ${admin.lastLoginTime}
@@ -108,7 +108,13 @@ function deleteAdmin(chosedAdmin){
         xhr.onload = function(){
             if(xhr.status == 200){
                 deleteConfirm.classList.add('hidden');
-                alert("刪除成功");
+                alertBox.classList.remove('hidden');
+                alertMessage.innerText = '刪除成功！';
+                  
+                setTimeout(function(){
+                    alertBox.classList.add('hidden');
+                }, 2000);
+                // alert("刪除成功");
                 loadAdminData();
             }else{
                 alert(xhr.status)
@@ -129,7 +135,13 @@ function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuth
 
     document.getElementById('submit_edit_btn').addEventListener('click', function(){
         if(chosedAdminId == "" || chosedAdminPsw == ""){
-            alert("帳號名稱和密碼且需填寫");
+            alertBox.classList.remove('hidden');
+            alertMessage.innerText = '帳號名稱和密碼且需填寫！';
+              
+            setTimeout(function(){
+                alertBox.classList.add('hidden');
+            }, 2000);
+            // alert("帳號名稱和密碼且需填寫");
         }else{
             let adminNo = chosedAdminNo.substr(7);
             let adminId = chosedAdminId;
@@ -140,7 +152,13 @@ function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuth
             xhr.onload = function(){
                 if(xhr.status == 200){
                     editConfirm.classList.add('hidden');
-                    alert("編輯完成");
+                    alertBox.classList.remove('hidden');
+                    alertMessage.innerText = '編輯完成！';
+                      
+                    setTimeout(function(){
+                        alertBox.classList.add('hidden');
+                    }, 2000);
+                    // alert("編輯完成");
                     loadAdminData();
                 }else{
                     alert(xhr.status)
@@ -181,13 +199,13 @@ function AddAdminCol(){
     </td>
     `;
     adminCol.innerHTML = adminStr;
-    adminTable.appendChild(adminCol);
+    adminTable.insertBefore(adminCol, adminTable.firstChild);
     btnAddAdmin = document.getElementById('btnAddAdmin');
     btnAddAdmin.addEventListener('click', function(){
         AddAdmin();
     });
     document.getElementById('btnCancelAddAdmin').addEventListener('click', function(){
-        adminTable.removeChild(adminTable.lastChild);
+        adminTable.removeChild(adminTable.firstChild);
     });
 };
 
@@ -204,14 +222,26 @@ function AddAdmin(){
         let adminAuthority = btnAddAdmin.parentNode.parentNode.querySelector('option:checked').value;
         // console.log(adminId, adminPsw, adminAuthority);
         if(adminId == "" || adminPsw == ""){
-            alert("帳號名稱和密碼且需填寫");
+            alertBox.classList.remove('hidden');
+            alertMessage.innerText = '帳號名稱和密碼且需填寫！';
+              
+            setTimeout(function(){
+                alertBox.classList.add('hidden');
+            }, 2000);
+            // alert("帳號名稱和密碼且需填寫");
         }else{
             let data_info = `adminId=${adminId}&adminPsw=${adminPsw}&adminAuthority=${adminAuthority}`;
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){
                 if(xhr.status == 200){
                     addConfirm.classList.add('hidden');
-                    alert("新增成功");
+                    alertBox.classList.remove('hidden');
+                    alertMessage.innerText = '新增成功！';
+                      
+                    setTimeout(function(){
+                        alertBox.classList.add('hidden');
+                    }, 2000);
+                    // alert("新增成功");
                     loadAdminData();
                 }else{
                     alert(xhr.status)
@@ -225,6 +255,12 @@ function AddAdmin(){
 };
 
 function doFirst(){
+    alertBox = document.getElementById('alertBox');
+    alertMessage = document.getElementById('alertMessage');
+    close_alert_btn = document.getElementById('close_alert_btn');
+    close_alert_btn.addEventListener('click', function(){
+        alertBox.classList.add('hidden');
+    });
     let btn_add_admin = document.getElementById('btn_add_admin');
     btn_add_admin.addEventListener('click', AddAdminCol);
 

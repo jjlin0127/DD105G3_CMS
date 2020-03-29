@@ -23,8 +23,8 @@
     </div>
     <main class="main">
    
-       <!-- 中間內容 -->
-       <div class="container-fluid">
+      <!-- 中間內容 -->
+      <div class="container-fluid">
         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -33,31 +33,67 @@
                         <a href="#">天然甘</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">管理員帳號管理</a>
+                        <a href="#">自由配果甘種類管理</a>
                     </li>
                 </ol>
             </nav>
         </div>
         <div class="card">
             <div class="card-header justify-content-end d-flex">
-                    <button type="button" class="btn btn-warning mr-1" id="btn_add_admin" >+新增管理員帳號</button>
+              <button type="button" class="btn btn-warning mr-1" id="btn_add_item" >+新增果甘種類</button>
             </div>
             <div class="card-body">
-                <table class="table table-responsive-sm table-sm">
-                    <thead class="thead">
-                        <tr>
-                            <th scope="col" class="tableTitle">帳號名稱</th>
-                            <th scope="col" class="tableTitle">密碼</th>
-                            <th scope="col" class="tableTitle">上次登入時間</th>
-                            <th scope="col" class="tableTitle">權限</th>
-                            <th scope="col" class="tableTitle">管理員設定編輯</th>
-                            <th scope="col" class="tableTitle">管理員帳號刪除</th>
-                        </tr>
-                    </thead>
-                    <tbody id="adminTable" class="card-body">
-                      
-                    </tbody>
-                </table>
+              <form>
+                  <div class="fruitTypeTable">
+                    <div class="tableTitle">編號</div>
+                    <div class="tableTitle">養生屬性</div>
+                    <div class="tableTitle">名稱</div>
+                    <div class="tableTitle">價格</div>
+                    <div class="tableTitle">圖片</div>
+                    <div class="tableTitle">上下架</div>
+                    <div class="tableTitle">編輯</div>
+                    <div class="tableTitle">刪除</div>
+                  </div>
+              </form>
+              <div id="fruitTypeWrapper">
+                <form id="fruitTypeForm">
+                    <div class="fruitTypeTable">
+                      <div class="fruitTypeNo">
+                        1
+                      </div>
+                      <div>
+                        <select class="form-control selectHealthType">
+                            <option name="healthType[]" value="1" selected="">幫助消化</option>
+                            <option name="healthType[]" value="2">活化大腦</option>
+                            <option name="healthType[]" value="3">保護血管</option>
+                            <option name="healthType[]" value="4">其它</option>
+                        </select>
+                      </div>
+                      <div>
+                        <input type="text" class="fruitTypeName" value="火龍果" size="10">
+                      </div>
+                      <div>
+                        <input type="text" class="fruitUnitPrice" value="60" size="10">
+                      </div>
+                      <div>
+                        <label for="upFile"><img class="imgPreview"></label>
+                        <input type="file" name="upFile" class="upFile">
+                      </div>
+                      <div>
+                        <label class="switch switch-3d switch-danger onOffItem">
+                          <input class="switch-input btnOnOffItem" type="checkbox">
+                          <span class="switch-slider"></span>
+                        </label>
+                      </div>
+                      <div>
+                        <button type="submit" class="btn btn-pill btn-primary btn-xl btnEditItem">編輯</button>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-pill btn-danger btn-xl btnDelItem">刪除</button>
+                      </div>
+                    </div>
+                </form>
+              </div>
             </div>
         </div>
       </div>
@@ -112,6 +148,6 @@
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="js/cms_getLogin.js"></script>
-  <script src="js/cms_administrator.js"></script>
+  <script src="js/cms_fruitType.js"></script>
 </body>
 </html>

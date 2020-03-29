@@ -1,6 +1,6 @@
 <?php
 try{
-  require_once("connectHomeserver.php");
+  require_once("connectHomeServer.php");
 
   $sql1 = "select * from `administrator` 
           where (adminId = :adminId) and (adminPsw = :adminPsw)";
@@ -14,6 +14,8 @@ try{
   }else{ //登入成功
     //自資料庫中取回資料
     $adminRow = $admin->fetch(PDO::FETCH_ASSOC);
+
+    echo json_encode($adminRow);
     //寫入session
     session_start();
     $_SESSION["adminNo"] = $adminRow["adminNo"];
@@ -28,7 +30,8 @@ try{
     $loginTime -> bindValue(":adminId", $_POST["adminId"]);
     $loginTime -> bindValue(":lastLoginTime", $lastLoginTime);
     $loginTime -> execute();
-    
+
+
   }
 }catch(PDOException $e){
   echo $e->getMessage();

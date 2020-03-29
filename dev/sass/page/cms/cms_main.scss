@@ -1,0 +1,202 @@
+//login.html
+.loginBackgroud{
+    background-image: url("../../../images/cms/sky.jpg");
+    background-size: cover;
+}
+
+.loginZone{
+    box-shadow: 0 0 20px #cac6c6;
+}
+
+.loginTitle{
+    margin-bottom: 20px;
+}
+
+//siderbar
+.noAuthority{
+    display: none; 
+}
+
+//page table title
+.tableTitle{
+    font-weight: 800;
+    background-color: antiquewhite;
+}
+
+//alert
+.alertBox{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    color: white;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: firebrick;
+    box-shadow: 2px 2px 5px rgba(178, 34, 34, 0.75);
+    overflow: hidden;
+    z-index: 4;
+    transition: all 0.3s linear;
+}
+
+.alertBox.hidden{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+#close_alert_btn{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    line-height: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close_alert_btn:hover{
+    color: black;
+}
+
+//administrator
+#adminTable tr > td:nth-child(5){
+    text-align: center;
+}
+
+#adminTable tr > td:last-child{
+    text-align: center;
+}
+
+.deleteConfirm, .addConfirm, .editConfirm{
+    display: block;
+    opacity: 1;
+    box-sizing: border-box;
+    width: 200px;
+    height: 150px;
+    padding: 15px;
+    background-color: whitesmoke;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 6;
+    transition: all 0.3s linear;
+    border: 5px solid #9AD3DE;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(#000000, 0.4);
+    text-align: center;
+
+    .confirm_btns{
+        margin-top: 30px;
+    }
+}
+.deleteConfirm.hidden, .addConfirm.hidden, .editConfirm.hidden{
+    display: none;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+//article
+#articleTable tr td:nth-child(1){
+    width: 8%;
+}
+#articleTable tr td:nth-child(2){
+    width: 45%;
+}
+#articleTable tr td:nth-child(3){
+    width: 22%;
+}
+
+.postContent{
+    line-height: 1rem;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;      
+    -webkit-box-orient: vertical;
+    max-height: 3rem;      
+}
+
+.reportReason{
+    line-height: 1rem;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;      
+    -webkit-box-orient: vertical;
+    max-height: 3rem;      
+}
+
+//message
+#messageTable tr td:nth-child(1){
+    width: 8%;
+}
+#messageTable tr td:nth-child(2){
+    width: 45%;
+}
+#messageTable tr td:nth-child(3){
+    width: 22%;
+}
+
+//
+.fruitTypeTable{
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.fruitTypeTable div{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.fruitTypeTable div:nth-child(1){
+    width: 5%;
+}
+.fruitTypeTable div:nth-child(2){
+    width: 13%;
+    .selectHealthType{
+        width: 80%;
+    }
+}
+.fruitTypeTable div:nth-child(3){
+    width: 11%;
+}
+.fruitTypeTable div:nth-child(4){
+    width: 11%;
+}
+.fruitTypeTable div:nth-child(5){
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.fruitTypeTable div:nth-child(6){
+    width: 10%;
+    text-align: center;
+    position: relative;
+
+    .onOffItem{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+.fruitTypeTable div:nth-child(7){
+    width: 10%;
+    text-align: center;
+}
+.fruitTypeTable div:nth-child(8){
+    width: 10%;
+    text-align: center;
+}
+

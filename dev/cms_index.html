@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_main.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -24,15 +25,25 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-       <div class="row">
-        <div class="col-md-12">
+
           <div class="card">
             <div class="card-header">後台首頁</div>
             <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6 col-md-8 col-12">
+                  <div class="barChart" style="width:500px;">
+                    <canvas id="salesBarChart"></canvas>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-8 col-12">
+                  <div class="pieChart" style="width:500px;">
+                    <canvas id="salesPieChart"></canvas>
+                  </div>
+                </div>
+            </div>
             </div>
           </div>
-        </div>
-       </div>
+
        <!-- end -->
 
       </div>
@@ -51,6 +62,8 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_index.js"></script>
 </body>
 </html>
