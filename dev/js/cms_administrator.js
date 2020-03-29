@@ -70,10 +70,10 @@ function readInAdmin(adminArr){
         `
         <tr>
             <td>
-                <input type="text" class="adminId" value="${admin.adminId}" size="20">
+                <input type="text" class="adminId" value="${admin.adminId}">
             </td>
             <td>
-                <input type="text" class="adminPsw" value="${admin.adminPsw}" size="20">
+                <input type="text" class="adminPsw" value="${admin.adminPsw}">
             </td>
             <td class="lastLoginTime">
                 ${admin.lastLoginTime}
@@ -103,6 +103,7 @@ function deleteAdmin(chosedAdmin){
 
     document.getElementById('submit_delete_btn').addEventListener('click', function(){
         let chosedAdminNo = chosedAdmin.substr(7);
+        console.log(chosedAdminNo);
         let data_info = `adminNo=${chosedAdminNo}`;
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
