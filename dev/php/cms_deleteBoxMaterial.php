@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectDeskServer.php");
+	require_once("connectHomeServer.php");
 
 	$sql = "DELETE FROM `boximg` where (boxImgNo = :boxImgNo)";
 	$boxImg = $pdo->prepare($sql);

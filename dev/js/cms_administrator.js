@@ -70,10 +70,10 @@ function readInAdmin(adminArr){
         `
         <tr>
             <td>
-                <input type="text" class="adminId" value="${admin.adminId}">
+                <input type="text" class="adminId" value="${admin.adminId}" size="16" maxlength="16">
             </td>
             <td>
-                <input type="text" class="adminPsw" value="${admin.adminPsw}">
+                <input type="text" class="adminPsw" value="${admin.adminPsw}" size="16" maxlength="16">
             </td>
             <td class="lastLoginTime">
                 ${admin.lastLoginTime}
@@ -178,10 +178,10 @@ function AddAdminCol(){
     let adminStr = 
     `
     <td>
-      <input type="text" class="adminId" value="">
+      <input type="text" class="adminId" value="" size="16" maxlength="16">
     </td>
     <td>
-      <input type="text" class="adminPsw" value="">
+      <input type="text" class="adminPsw" value="" size="16" maxlength="16">
     </td>
     <td>
 

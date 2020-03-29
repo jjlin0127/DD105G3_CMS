@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectDeskServer.php");
+    require_once("connectHomeServer.php");
 
     $sql = "select * from `fruit_type`";
     $fruits = $pdo->query($sql);

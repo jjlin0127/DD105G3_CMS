@@ -33,6 +33,13 @@ function cms_login(){
 function doFirst(){
     // getLoginInfo();
     document.getElementById('btnLogin').addEventListener('click', cms_login);
+    var input = document.getElementById("adminPsw");
+    input.addEventListener("keyup", function(e) {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            document.getElementById('btnLogin').click();
+        }
+    });
 };
 
 window.addEventListener('load', doFirst);

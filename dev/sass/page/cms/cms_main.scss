@@ -9,7 +9,34 @@
 }
 
 .loginTitle{
-    margin-bottom: 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    img{
+        width: 250px;
+    }
+}
+
+//header
+@media all and (max-width: 996px) {
+    .logo{
+        left: 50% !important;
+    }
+}
+@media all and (max-width: 576px) {
+    .logo{
+        left: 30% !important;
+    }
+}
+
+
+.btnLogouter{
+    margin: 0 !important;
+}
+#btnLogout{
+    min-width: 54px;
 }
 
 //siderbar
@@ -37,8 +64,8 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: firebrick;
-    box-shadow: 2px 2px 5px rgba(178, 34, 34, 0.75);
+    background-color: crimson;
+    box-shadow: 2px 2px 5px rgba(220, 20, 60, 0.75);
     overflow: hidden;
     z-index: 4;
     transition: all 0.3s linear;
@@ -64,13 +91,28 @@
     color: black;
 }
 
-//administrator
-#adminTable tr > td:nth-child(5){
-    text-align: center;
+//index
+.barChart, .pieChart{
+    position: relative;
+    height: 50vh;
+    width: 70vw;
 }
 
-#adminTable tr > td:last-child{
+//administrator
+.adminTable tr td:nth-child(3){
+    min-width: 100px;
+}
+.adminTable tr td:nth-child(4){
+    min-width: 80px;
+}
+.adminTable tr td:nth-child(5){
     text-align: center;
+    min-width: 80px;
+}
+
+.adminTable tr td:last-child{
+    text-align: center;
+    min-width: 80px;
 }
 
 .deleteConfirm, .addConfirm, .editConfirm{
@@ -104,14 +146,23 @@
 }
 
 //article
-#articleTable tr td:nth-child(1){
+.articleTable tr td:nth-child(1){
     width: 8%;
+    min-width: 40px;
 }
-#articleTable tr td:nth-child(2){
+.articleTable tr td:nth-child(2){
     width: 45%;
+    min-width: 150px;
 }
-#articleTable tr td:nth-child(3){
+.articleTable tr td:nth-child(3){
     width: 22%;
+    min-width: 100px;
+}
+.articleTable tr td:nth-child(4){
+    min-width: 100px;
+}
+.articleTable tr td:nth-child(5){
+    min-width: 50px;
 }
 
 .postContent{
@@ -135,14 +186,64 @@
 }
 
 //message
-#messageTable tr td:nth-child(1){
+.messageTable tr td:nth-child(1){
     width: 8%;
+    min-width: 40px;
 }
-#messageTable tr td:nth-child(2){
+.messageTable tr td:nth-child(2){
     width: 45%;
+    min-width: 150px;
 }
-#messageTable tr td:nth-child(3){
+.messageTable tr td:nth-child(3){
     width: 22%;
+    min-width: 100px;
+}
+.messageTable tr td:nth-child(4){
+    min-width: 100px;
+}
+.messageTable tr td:nth-child(5){
+    min-width: 50px;
+}
+
+//order
+.orderTable tr td:nth-child(1){
+    width: 5%;
+    min-width: 40px;
+}
+.orderTable tr td:nth-child(2){
+    width: 5%;
+    min-width: 40px;
+}
+.orderTable tr td:nth-child(3){
+    width: 8%;
+    min-width: 100px;
+}
+.orderTable tr td:nth-child(4){
+    width: 8%;
+    min-width: 80px;
+}
+.orderTable tr td:nth-child(5){
+    width: 8%;
+    min-width: 80px;
+}
+.orderTable tr td:nth-child(6){
+    width: 38%;
+    min-width: 200px;
+}
+.orderTable tr td:nth-child(7){
+    width: 8%;
+    min-width: 100px;
+}
+.orderTable tr td:nth-child(8){
+    width: 10%;
+    min-width: 120px;
+    select{
+        width: 80%;
+    }
+}
+.orderTable tr td:nth-child(9){
+    width: 10%;
+    min-width: 80px;
 }
 
 //fruitType
@@ -159,26 +260,32 @@
 
 .fruitTypeTable div:nth-child(1){
     width: 5%;
+    min-width: 40px;
 }
 .fruitTypeTable div:nth-child(2){
-    width: 13%;
-    .selectHealthType{
-        width: 80%;
+    width: 11%;
+    min-width: 120px;
+    select{
+        width: 90%;
     }
 }
 .fruitTypeTable div:nth-child(3){
     width: 11%;
+    min-width: 100px;
 }
 .fruitTypeTable div:nth-child(4){
     width: 11%;
+    min-width: 100px;
 }
 .fruitTypeTable div:nth-child(5){
     width: 30%;
+    min-width: 250px;
     display: flex;
     align-items: center;
 }
 .fruitTypeTable div:nth-child(6){
     width: 10%;
+    min-width: 80px;
     text-align: center;
     position: relative;
 
@@ -194,13 +301,14 @@
 
 .fruitTypeTable div:nth-child(7){
     width: 10%;
+    min-width: 80px;
     text-align: center;
 }
 .fruitTypeTable div:nth-child(8){
     width: 10%;
+    min-width: 80px;
     text-align: center;
 }
-
 
 //boxMaterial
 .boxMaterialTable{
@@ -216,18 +324,22 @@
 
 .boxMaterialTable div:nth-child(1){
     width: 10%;
+    min-width: 40px;
 }
 .boxMaterialTable div:nth-child(2){
     width: 21%;
+    min-width: 120px;
 }
 .boxMaterialTable div:nth-child(3){
     width: 30%;
+    min-width: 250px;
     display: flex;
     align-items: center;
 }
 
 .boxMaterialTable div:nth-child(4){
     width: 13%;
+    min-width: 80px;
     text-align: center;
     position: relative;
 
@@ -243,10 +355,12 @@
 
 .boxMaterialTable div:nth-child(5){
     width: 13%;
+    min-width: 80px;
     text-align: center;
 }
 .boxMaterialTable div:nth-child(6){
     width: 13%;
+    min-width: 80px;
     text-align: center;
 }
 

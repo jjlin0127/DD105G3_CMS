@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectDeskServer.php");
+	require_once("connectHomeServerr.php");
 
 	$sql = "DELETE FROM `administrator` where (adminNo = :adminNo)";
 	$admin = $pdo->prepare($sql);

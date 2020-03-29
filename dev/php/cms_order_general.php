@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectHomeserver.php");
+	require_once("connectHomeServer.php");
 
 	$sql = "select * from `order_general`";
     $order_generals = $pdo->query($sql);

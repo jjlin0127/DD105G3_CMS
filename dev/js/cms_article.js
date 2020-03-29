@@ -68,7 +68,7 @@ function readInReportArti(reportArtiArr){
                 blockStatusStr =`
                 <td>
                     <label class="switch switch-3d switch-danger">
-                        <input class="switch-input btnBlockArti" type="checkbox">
+                        <input class="switch-input btnBlockArti" type="checkbox" checked="">
                         <span class="switch-slider"></span>
                     </label>
                 </td>`;
@@ -77,7 +77,7 @@ function readInReportArti(reportArtiArr){
                 blockStatusStr =`
                 <td>
                     <label class="switch switch-3d switch-danger">
-                        <input class="switch-input btnBlockArti" type="checkbox" checked="">
+                        <input class="switch-input btnBlockArti" type="checkbox">
                         <span class="switch-slider"></span>
                     </label>
                 </td>`;

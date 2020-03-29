@@ -7,6 +7,8 @@
   <title>後台管理系統 | 天然甘</title>
   <!-- Icons-->
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Title-->
+  <link rel="shortcut icon" href="./images/shortIcon.png">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
   <link href="css/page/cms/cms_main.css" rel="stylesheet">
@@ -22,7 +24,6 @@
        <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
        <!-- 中間內容 -->
        <div class="container-fluid">
@@ -34,6 +35,9 @@
                         <a href="#">天然甘</a>
                     </li>
                     <li class="breadcrumb-item">
+                      <a href="#">討論區管理</a>
+                    </li>
+                    <li class="breadcrumb-item">
                         <a href="#">話題檢舉管理</a>
                     </li>
                 </ol>
@@ -41,7 +45,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <table class="table table-responsive-sm table-sm">
+                <table class="table table-responsive-sm table-sm messageTable">
                     <thead class="thead">
                         <tr>
                             <th scope="col" class="tableTitle">留言編號</th>
@@ -51,7 +55,7 @@
                             <th scope="col" class="tableTitle">是否屏蔽</th>
                         </tr>
                     </thead>
-                    <tbody id="messageTable" class="card-body">
+                    <tbody id="messageTable" class="card-body messageTable">
 
                     </tbody>
                 </table>
@@ -60,7 +64,6 @@
     </div>
        <!-- end -->
 
-      </div>
        <!-- alert start -->
        @@include('layout/alert.html')
        <!-- alert end -->

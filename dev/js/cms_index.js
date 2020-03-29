@@ -32,6 +32,7 @@ var myBarChart = new Chart(ctx, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             yAxes: [{
                 ticks: {
@@ -71,7 +72,8 @@ var myPieChart = new Chart(ctx, {
         labels: ["楊桃", "鳳梨", "火龍果", "香蕉", "草莓", "芭樂", "芒果", "蘋果", "藍莓"],
     },
     options: {
-        responsive: true,
+        maintainAspectRatio: false,
+        // responsive: true,
         layout: {
             padding: {
                 top: 20,
@@ -79,3 +81,9 @@ var myPieChart = new Chart(ctx, {
         },
     },
 });
+
+function beforePrintHandler () {
+    for (var ctx in Chart.instances) {
+        Chart.instances[ctx].resize();
+    }
+}

@@ -7,6 +7,8 @@
   <title>後台管理系統 | 天然甘</title>
   <!-- Icons-->
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Title-->
+  <link rel="shortcut icon" href="./images/shortIcon.png">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
   <link href="css/page/cms/cms_main.css" rel="stylesheet">
@@ -43,18 +45,18 @@
                     <button type="button" class="btn btn-warning mr-1" id="btn_add_admin" >+新增管理員帳號</button>
             </div>
             <div class="card-body">
-                <table class="table table-responsive-sm table-sm">
+                <table class="table table-responsive-sm table-sm adminTable">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">帳號名稱</th>
-                            <th scope="col" class="tableTitle">密碼</th>
-                            <th scope="col" class="tableTitle">上次登入時間</th>
-                            <th scope="col" class="tableTitle">權限</th>
-                            <th scope="col" class="tableTitle">管理員設定編輯</th>
-                            <th scope="col" class="tableTitle">管理員帳號刪除</th>
+                            <td scope="col" class="tableTitle">帳號名稱</td>
+                            <td scope="col" class="tableTitle">密碼</td>
+                            <td scope="col" class="tableTitle">上次登入時間</td>
+                            <td scope="col" class="tableTitle">權限</td>
+                            <td scope="col" class="tableTitle">管理員設定編輯</td>
+                            <td scope="col" class="tableTitle">管理員帳號刪除</td>
                         </tr>
                     </thead>
-                    <tbody id="adminTable" class="card-body">
+                    <tbody id="adminTable" class="card-body adminTable">
                       
                     </tbody>
                 </table>

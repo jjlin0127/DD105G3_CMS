@@ -45,7 +45,7 @@ function readInbox(boxArr){
                     ${box.boxImgNo}
                 </div>
                 <div>
-                    <input type="text" class="boxImgName" value="${box.boxImgName}" size="15">     
+                    <input type="text" class="boxImgName" value="${box.boxImgName}" size="10" maxlength="10">     
                 </div>
                 <div>
                     <img class="imgPreview" src="./images/box/${box.boxImgPath}" width="80">
@@ -152,7 +152,7 @@ function AddItemCol(){
             
         </div>
         <div>
-            <input type="text" name="boxImgName" value="" size="15" id="boxImgName">
+            <input type="text" name="boxImgName" value="" size="10" maxlength="10" id="boxImgName">
         </div>
         <div>
             <label for="upFile"><img id="imgPreview" src="./images/box/gift.png" width="80"></label>

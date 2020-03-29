@@ -7,6 +7,8 @@
   <title>後台管理系統 | 天然甘</title>
   <!-- Icons-->
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Title-->
+  <link rel="shortcut icon" href="./images/shortIcon.png">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
   <link href="css/page/cms/cms_main.css" rel="stylesheet">
@@ -22,7 +24,6 @@
        <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
        <!-- 中間內容 -->
       <div class="container-fluid">
@@ -34,28 +35,28 @@
                         <a href="#">天然甘</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">一般訂單管理</a>
+                        <a href="#">訂單管理</a>
                     </li>
                 </ol>
             </nav>
         </div>
         <div class="card">
             <div class="card-body">
-                <table class="table table-responsive-sm table-sm">
+                <table class="table table-responsive-sm table-sm orderTable">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">訂單編號</th>
-                            <th scope="col" class="tableTitle">會員編號</th>
-                            <th scope="col" class="tableTitle">訂購日期</th>
-                            <th scope="col" class="tableTitle">總金額</th>
-                            <th scope="col" class="tableTitle">收件人</th>
-                            <th scope="col" class="tableTitle">收件地址</th>
-                            <th scope="col" class="tableTitle">付款方式</th>
-                            <th scope="col" class="tableTitle">訂單狀態</th>
-                            <th scope="col" class="tableTitle">確認修改</th>
+                            <td scope="col" class="tableTitle">訂單編號</td>
+                            <td scope="col" class="tableTitle">會員編號</td>
+                            <td scope="col" class="tableTitle">訂購日期</td>
+                            <td scope="col" class="tableTitle">總金額</td>
+                            <td scope="col" class="tableTitle">收件人</td>
+                            <td scope="col" class="tableTitle">收件地址</td>
+                            <td scope="col" class="tableTitle">付款方式</td>
+                            <td scope="col" class="tableTitle">訂單狀態</td>
+                            <td scope="col" class="tableTitle">確認修改</td>
                         </tr>
                     </thead>
-                    <tbody id="orderTable" class="card-body">
+                    <tbody id="orderTable" class="card-body orderTable">
 
                     </tbody>
                 </table>
@@ -63,17 +64,6 @@
         </div>
       </div>
        <!-- end -->
-
-      </div>
-      <!-- edit confirm popbox start -->
-      <!-- <div id="editConfirm" class="editConfirm hidden">
-        <h5>是否確定修改</h5>
-          <div class="confirm_btns">
-            <span class="btn btn-pill btn-primary btn-xl" id="cancel_edit_btn">取消</span>
-            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_edit_btn">確定</button>
-          </div>
-      </div> -->
-      <!-- confirm end -->
 
       <!-- alert start -->
       @@include('layout/alert.html')

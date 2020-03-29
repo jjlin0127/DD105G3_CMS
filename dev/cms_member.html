@@ -7,6 +7,8 @@
   <title>後台管理系統 | 天然甘</title>
   <!-- Icons-->
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Title-->
+  <link rel="shortcut icon" href="./images/shortIcon.png">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
   <link href="css/page/cms/cms_main.css" rel="stylesheet">
@@ -22,7 +24,6 @@
        <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
        <!-- 中間內容 -->
        <div class="container-fluid">
@@ -44,13 +45,13 @@
                 <table class="table table-responsive-sm table-sm">
                     <thead class="thead">
                         <tr>
-                            <th scope="col" class="tableTitle">編號</th>
-                            <th scope="col" class="tableTitle">帳號</th>
-                            <th scope="col" class="tableTitle">姓名</th>
-                            <th scope="col" class="tableTitle">暱稱</th>
-                            <th scope="col" class="tableTitle">電話</th>
-                            <th scope="col" class="tableTitle">點數</th>
-                            <th scope="col" class="tableTitle">是否停權</th>
+                            <td scope="col" class="tableTitle">編號</td>
+                            <td scope="col" class="tableTitle">帳號</td>
+                            <td scope="col" class="tableTitle">姓名</td>
+                            <td scope="col" class="tableTitle">暱稱</td>
+                            <td scope="col" class="tableTitle">電話</td>
+                            <td scope="col" class="tableTitle">點數</td>
+                            <td scope="col" class="tableTitle">是否停權</td>
                         </tr>
                     </thead>
                     <tbody id="memberTable" class="card-body">
@@ -62,7 +63,6 @@
       </div>
        <!-- end -->
        
-      </div>
        <!-- alert start -->
       @@include('layout/alert.html')
       <!-- alert end -->

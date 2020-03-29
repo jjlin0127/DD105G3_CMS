@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectDeskServer.php");
+	require_once("connectHomeServer.php");
 
 	$sql = "INSERT INTO `administrator` (`adminId`, `adminPsw`, `adminAuthority`) values(:adminId, :adminPsw, :adminAuthority)";
 	$admin = $pdo->prepare($sql);

@@ -94,10 +94,10 @@ function readInFruitType(fruitArr){
                 healthTypeStr + 
                 `
                 <div>
-                    <input type="text" class="fruitTypeName" value="${fruit.fruitTypeName}" size="10">     
+                    <input type="text" class="fruitTypeName" value="${fruit.fruitTypeName}" size="10" maxlength="10">     
                 </div>
                 <div>
-                    <input type="text" class="fruitUnitPrice" value="${fruit.fruitUnitPrice}" size="10">
+                    <input type="text" class="fruitUnitPrice" value="${fruit.fruitUnitPrice}" size="10" maxlength="10">
                 </div>` + `
                 <div>
                     <img class="imgPreview" src="./images/cusFruits/${fruit.fruitTypePic}" width="80">
@@ -218,10 +218,10 @@ function AddItemCol(){
             </select>
         </div>
         <div>
-            <input type="text" name="fruitTypeName" value="" size="10" id="fruitTypeName">
+            <input type="text" name="fruitTypeName" value="" size="10" maxlength="10" id="fruitTypeName">
         </div>
         <div>
-            <input type="text" name="fruitUnitPrice" value="" size="10" id="fruitUnitPrice">
+            <input type="text" name="fruitUnitPrice" value="" size="10" maxlength="10" id="fruitUnitPrice">
         </div>
         <div>
             <label for="upFile"><img id="imgPreview" src="./images/cusFruits/fruit.png" width="80"></label>
