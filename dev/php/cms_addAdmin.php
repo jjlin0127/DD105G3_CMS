@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectDeskServer.php");
+	require_once("connectHomeServer");
 
 	$sql = "INSERT INTO `administrator` (`adminId`, `adminPsw`, `adminAuthority`) 
 			values(:adminId, :adminPsw, :adminAuthority)";

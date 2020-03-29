@@ -70,10 +70,10 @@ function readInAdmin(adminArr){
         `
         <tr>
             <td>
-                <input type="text" class="adminId" value="${admin.adminId}">
+                <input type="text" class="adminId" value="${admin.adminId}" size="20">
             </td>
             <td>
-                <input type="text" class="adminPsw" value="${admin.adminPsw}">
+                <input type="text" class="adminPsw" value="${admin.adminPsw}" size="20">
             </td>
             <td class="lastLoginTime">
                 ${admin.lastLoginTime}
@@ -199,13 +199,13 @@ function AddAdminCol(){
     </td>
     `;
     adminCol.innerHTML = adminStr;
-    adminTable.appendChild(adminCol);
+    adminTable.insertBefore(adminCol, adminTable.firstChild);
     btnAddAdmin = document.getElementById('btnAddAdmin');
     btnAddAdmin.addEventListener('click', function(){
         AddAdmin();
     });
     document.getElementById('btnCancelAddAdmin').addEventListener('click', function(){
-        adminTable.removeChild(adminTable.lastChild);
+        adminTable.removeChild(adminTable.firstChild);
     });
 };
 

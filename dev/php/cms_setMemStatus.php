@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectDeskServer.php");
+	require_once("connectHomeServer.php");
 
     $sql = "update `member` set memStatus = :memStatus 
             where (memNo = :memNo)";

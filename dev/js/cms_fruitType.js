@@ -8,7 +8,7 @@ function loadFruitType(){
             // deep copy
             fruitArrCopy = JSON.parse(JSON.stringify(fruitOriArr));
             // console.log(adminArrCopy);
-            readInAdmin(fruitArrCopy);
+            readInFruitType(fruitArrCopy);
         // }else{
         //     alert(xhr.status);
         // };
@@ -20,245 +20,238 @@ function loadFruitType(){
 function readInFruitType(fruitArr){       
     let fruitStr = '';
     let healthTypeStr = '';
-    let fruitImgStr = '';
     let fruitOnOffStr = '';
     fruitArr.forEach(function(fruit){
-        switch(fruit.healthType){
+        switch(fruit.healthyType){
             case "1":
                 healthTypeStr =`
-                <td>
+                <div>
                     <select class="form-control selectHealthType">
                         <option name="healthType[]" value="1" selected="">幫助消化</option>
                         <option name="healthType[]" value="2">活化大腦</option>
                         <option name="healthType[]" value="3">保護血管</option>
                         <option name="healthType[]" value="4">其它</option>
                     </select>
-                </td>`;
+                </div>`;
             break;
             case "2":
                 healthTypeStr =`
-                <td>
+                <div>
                     <select class="form-control selectHealthType">
                         <option name="healthType[]" value="1">幫助消化</option>
                         <option name="healthType[]" value="2" selected="">活化大腦</option>
                         <option name="healthType[]" value="3">保護血管</option>
                         <option name="healthType[]" value="4">其它</option>
                     </select>
-                </td>`;
+                </div>`;
             break;
             case "3":
                 healthTypeStr =`
-                <td>
+                <div>
                     <select class="form-control selectHealthType">
                         <option name="healthType[]" value="1">幫助消化</option>
                         <option name="healthType[]" value="2">活化大腦</option>
                         <option name="healthType[]" value="3" selected="">保護血管</option>
                         <option name="healthType[]" value="4">其它</option>
                     </select>
-                </td>`;
+                </div>`;
             break;
             default:
                 healthTypeStr =`
-                <td>
+                <div>
                     <select class="form-control selectHealthType">
                         <option name="healthType[]" value="1">幫助消化</option>
                         <option name="healthType[]" value="2">活化大腦</option>
                         <option name="healthType[]" value="3">保護血管</option>
                         <option name="healthType[]" value="4" selected="">其它</option>
                     </select>
-                </td>`;
+                </div>`;
             break;
-        };
-        if(fruit.fruitTypePic == null){
-            fruitImgStr =`
-            <td>
-                <label for="upFile"><img class="imgPreview" src="" width="80"></label>
-                <input type="file" name="upFile" class="upFile">
-            </td>`;
-        }else{
-            fruitImgStr =`
-            <td>
-                <label for="upFile"><img class="imgPreview" src="./images/cusFruits/${fruitTypePic}" width="80"></label>
-                <input type="file" name="upFile" class="upFile">
-            </td>`;
         };
         if(fruit.fruitTypeStatus == "0"){
             fruitOnOffStr =`
-            <td>
-                <label class="switch switch-3d switch-danger">
+            <div>
+                <label class="switch switch-3d switch-danger onOffItem">
                     <input class="switch-input btnOnOffItem" type="checkbox">
                     <span class="switch-slider"></span>
                 </label>
-            </td>`;
+            </div>`;
         }else{
             fruitOnOffStr =`
-            <td>
-                <label class="switch switch-3d switch-danger">
+            <div>
+                <label class="switch switch-3d switch-danger onOffItem">
                     <input class="switch-input btnOnOffItem" type="checkbox" checked="">
                     <span class="switch-slider"></span>
                 </label>
-            </td>`;
+            </div>`;
         };
         fruitStr +=
-        `
-        <tr>
-            <td class="fruitTypeNo">
-                ${fruit.fruitTypeNo}
-            </td>` +
-            healthTypeStr + 
-            `
-            <td>
-                ${fruit.fruitTypeName}
-            </td>
-            <td>
-                ${fruit.fruitUnitPrice}
-            </td>` +
-            fruitImgStr +
-            fruitOnOffStr +
-            `
-            <td>
-                <button type="button" class="btn btn-pill btn-primary btn-xl btnEditItem">編輯</button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-pill btn-danger btn-xl btnDelItem">刪除</button>
-            </td>
-        </tr>
+        `<form id="fruitTypeForm${fruit.fruitTypeNo}">
+            <div class="fruitTypeTable">
+                <div class="fruitTypeNo">
+                    ${fruit.fruitTypeNo}
+                </div>` +
+                healthTypeStr + 
+                `
+                <div>
+                    <input type="text" class="fruitTypeName" value="${fruit.fruitTypeName}" size="10">     
+                </div>
+                <div>
+                    <input type="text" class="fruitUnitPrice" value="${fruit.fruitUnitPrice}" size="10">
+                </div>` + `
+                <div>
+                    <img class="imgPreview${fruit.fruitTypeNo}" src="./images/cusFruits/${fruit.fruitTypePic}" width="80">
+                </div>` +
+                fruitOnOffStr +
+                `
+                <div>
+                    <button type="submit" class="btn btn-pill btn-primary btn-xl btnEditItem">編輯</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-pill btn-danger btn-xl btnDelItem">刪除</button>
+                </div>
+            </div>
+        </form>
         `;
     });
-    let fruitTypeTable = document.getElementById('fruitTypeTable');
-    fruitTypeTable.innerHTML = fruitStr;
+    let fruitTypeWrapper = document.getElementById('fruitTypeWrapper');
+    fruitTypeWrapper.innerHTML = fruitStr;
     doFirst();
 };
 
-function deleteAdmin(chosedAdmin){
-    deleteConfirm = document.getElementById('deleteConfirm');
-    deleteConfirm.classList.remove('hidden');
-    document.getElementById('cancel_delete_btn').addEventListener('click', function(){
-        deleteConfirm.classList.add('hidden');
+// function deleteAdmin(chosedAdmin){
+//     deleteConfirm = document.getElementById('deleteConfirm');
+//     deleteConfirm.classList.remove('hidden');
+//     document.getElementById('cancel_delete_btn').addEventListener('click', function(){
+//         deleteConfirm.classList.add('hidden');
 
-    });
+//     });
 
-    document.getElementById('submit_delete_btn').addEventListener('click', function(){
-        let chosedAdminNo = chosedAdmin.substr(7);
-        let data_info = `adminNo=${chosedAdminNo}`;
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-            if(xhr.status == 200){
-                deleteConfirm.classList.add('hidden');
-                alertBox.classList.remove('hidden');
-                alertMessage.innerText = '刪除成功！';
+//     document.getElementById('submit_delete_btn').addEventListener('click', function(){
+//         let chosedAdminNo = chosedAdmin.substr(7);
+//         let data_info = `adminNo=${chosedAdminNo}`;
+//         let xhr = new XMLHttpRequest();
+//         xhr.onload = function(){
+//             if(xhr.status == 200){
+//                 deleteConfirm.classList.add('hidden');
+//                 alertBox.classList.remove('hidden');
+//                 alertMessage.innerText = '刪除成功！';
                   
-                setTimeout(function(){
-                    alertBox.classList.add('hidden');
-                }, 2000);
-                // alert("刪除成功");
-                loadAdminData();
-            }else{
-                alert(xhr.status)
-            };
-        };
-        xhr.open("POST", "./php/cms_deleteAdmin.php", true);
-        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        xhr.send(data_info);
-    });
-};
+//                 setTimeout(function(){
+//                     alertBox.classList.add('hidden');
+//                 }, 2000);
+//                 // alert("刪除成功");
+//                 loadAdminData();
+//             }else{
+//                 alert(xhr.status)
+//             };
+//         };
+//         xhr.open("POST", "./php/cms_deleteAdmin.php", true);
+//         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+//         xhr.send(data_info);
+//     });
+// };
 
-function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority){
-    editConfirm = document.getElementById('editConfirm');
-    editConfirm.classList.remove('hidden');
-    document.getElementById('cancel_edit_btn').addEventListener('click', function(){
-        editConfirm.classList.add('hidden');
-    });
+// function editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority){
+//     editConfirm = document.getElementById('editConfirm');
+//     editConfirm.classList.remove('hidden');
+//     document.getElementById('cancel_edit_btn').addEventListener('click', function(){
+//         editConfirm.classList.add('hidden');
+//     });
 
-    document.getElementById('submit_edit_btn').addEventListener('click', function(){
-        if(chosedAdminId == "" || chosedAdminPsw == ""){
-            alertBox.classList.remove('hidden');
-            alertMessage.innerText = '帳號名稱和密碼且需填寫！';
+//     document.getElementById('submit_edit_btn').addEventListener('click', function(){
+//         if(chosedAdminId == "" || chosedAdminPsw == ""){
+//             alertBox.classList.remove('hidden');
+//             alertMessage.innerText = '帳號名稱和密碼且需填寫！';
               
-            setTimeout(function(){
-                alertBox.classList.add('hidden');
-            }, 2000);
-            // alert("帳號名稱和密碼且需填寫");
-        }else{
-            let adminNo = chosedAdminNo.substr(7);
-            let adminId = chosedAdminId;
-            let adminPsw = chosedAdminPsw;
-            let adminAuthority = chosedAdminAuthority;
-            let data_info = `adminNo=${adminNo}&adminId=${adminId}&adminPsw=${adminPsw}&adminAuthority=${adminAuthority}`;
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function(){
-                if(xhr.status == 200){
-                    editConfirm.classList.add('hidden');
-                    alertBox.classList.remove('hidden');
-                    alertMessage.innerText = '編輯完成！';
+//             setTimeout(function(){
+//                 alertBox.classList.add('hidden');
+//             }, 2000);
+//             // alert("帳號名稱和密碼且需填寫");
+//         }else{
+//             let adminNo = chosedAdminNo.substr(7);
+//             let adminId = chosedAdminId;
+//             let adminPsw = chosedAdminPsw;
+//             let adminAuthority = chosedAdminAuthority;
+//             let data_info = `adminNo=${adminNo}&adminId=${adminId}&adminPsw=${adminPsw}&adminAuthority=${adminAuthority}`;
+//             let xhr = new XMLHttpRequest();
+//             xhr.onload = function(){
+//                 if(xhr.status == 200){
+//                     editConfirm.classList.add('hidden');
+//                     alertBox.classList.remove('hidden');
+//                     alertMessage.innerText = '編輯完成！';
                       
-                    setTimeout(function(){
-                        alertBox.classList.add('hidden');
-                    }, 2000);
-                    // alert("編輯完成");
-                    loadAdminData();
-                }else{
-                    alert(xhr.status)
-                };
-            };
-            xhr.open("POST", "./php/cms_editAdmin.php", true);
-            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-            xhr.send(data_info);
-        };
-    });
-};
+//                     setTimeout(function(){
+//                         alertBox.classList.add('hidden');
+//                     }, 2000);
+//                     // alert("編輯完成");
+//                     loadAdminData();
+//                 }else{
+//                     alert(xhr.status)
+//                 };
+//             };
+//             xhr.open("POST", "./php/cms_editAdmin.php", true);
+//             xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+//             xhr.send(data_info);
+//         };
+//     });
+// };
 
 function AddItemCol(){
-    let fruitTypeTable = document.getElementById('fruitTypeTable');
-    let fruitTypeCol = document.createElement('tr');
+    let fruitTypeWrapper = document.getElementById('fruitTypeWrapper');
+    let fruitTypeCol = document.createElement('form');
     let fruitTypeStr = 
     `
-    <td class="fruitTypeNo">
-        
-    </td>
-    <td>
-        <select class="form-control selectHealthType">
-            <option name="healthType[]" value="1" selected="">幫助消化</option>
-            <option name="healthType[]" value="2">活化大腦</option>
-            <option name="healthType[]" value="3">保護血管</option>
-            <option name="healthType[]" value="4">其它</option>
-        </select>
-    </td>
-    <td>
-        <input type="text" class="fruitTypeName" value="">
-    </td>
-    <td>
-        <input type="text" class="fruitUnitPrice" value="">
-    </td>
-    <td>
-        <label for="upFile"><img class="imgPreview" src="" width="80"></label>
-        <input type="file" name="upFile" class="upFile" style="">
-    </td>
-    <td>
-        <label class="switch switch-3d switch-danger">
-            <input class="switch-input btnOnOffItem" type="checkbox">
-            <span class="switch-slider"></span>
-        </label>
-    </td>
-    <td>
-    <button type="button" class="btn btn-pill btn-primary btn-xl" id="btnAddItem">新增</button>
-    </td>
-    <td>
-    <button type="button" class="btn btn-pill btn-danger btn-xl" id="btnCancelAddItem">刪除</button>
-    </td>
+    <div class="fruitTypeTable">
+        <div class="fruitTypeNo">
+            
+        </div>
+        <div>
+            <select class="form-control selectHealthType" select name="healthType[]>
+                <option name="healthType[]" value="1" selected="">幫助消化</option>
+                <option name="healthType[]" value="2">活化大腦</option>
+                <option name="healthType[]" value="3">保護血管</option>
+                <option name="healthType[]" value="4">其它</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" name="fruitTypeName" value="" size="10" id="fruitTypeName">
+        </div>
+        <div>
+            <input type="text" name="fruitUnitPrice" value="" size="10" id="fruitTypeName">
+        </div>
+        <div>
+            <label for="upFile"><img id="imgPreview" src="./images/cusFruits/fruit.png"></label>
+            <input type="file" name="upFile" id="upFile">
+        </div>
+        <div>
+            <label class="switch switch-3d switch-danger onOffItem">
+                <input class="switch-input btnOnOffItem" type="checkbox">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
+        <div>
+            <button type="button" class="btn btn-pill btn-primary btn-xl" id="btnAddItem">新增</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-pill btn-danger btn-xl" id="btnCancelAddItem">刪除</button>
+        </div>
+    </div>
     `;
     fruitTypeCol.innerHTML = fruitTypeStr;
-    fruitTypeTable.appendChild(fruitTypeCol);
+    fruitTypeCol.id = "addfruitTypeForm";
+    fruitTypeWrapper.insertBefore(fruitTypeCol, fruitTypeWrapper.firstChild);
+    // fruitTypeWrapper.appendChild(fruitTypeCol);
     btnAddItem = document.getElementById('btnAddItem');
     btnAddItem.addEventListener('click', function(){
         AddItem();
     });
-    document.getElementById('AddItem').addEventListener('click', function(){
-        fruitTypeTable.removeChild(fruitTypeTable.lastChild);
+    document.getElementById('btnCancelAddItem').addEventListener('click', function(){
+        fruitTypeWrapper.removeChild(fruitTypeWrapper.firstChild);
     });
 };
 
-function AddAdmin(){
+function AddItem(){
     addConfirm = document.getElementById('addConfirm');
     addConfirm.classList.remove('hidden');
     document.getElementById('cancel_add_btn').addEventListener('click', function(){
@@ -266,7 +259,7 @@ function AddAdmin(){
     });
 
     document.getElementById('submit_add_btn').addEventListener('click', function(){
-        let adminId = btnAddAdmin.parentNode.parentNode.getElementsByClassName('adminId')[0].value;
+        let fruitTypeName = document.getElementById('fruitTypeName').value;
         let adminPsw = btnAddAdmin.parentNode.parentNode.getElementsByClassName('adminPsw')[0].value;
         let adminAuthority = btnAddAdmin.parentNode.parentNode.querySelector('option:checked').value;
         // console.log(adminId, adminPsw, adminAuthority);
@@ -313,26 +306,26 @@ function doFirst(){
     let btn_add_item = document.getElementById('btn_add_item');
     btn_add_item.addEventListener('click', AddItemCol);
 
-    let btnDelAdmin = document.getElementsByClassName('btnDelAdmin');
-    for(let i=0; i<btnDelAdmin.length; i++){
-        btnDelAdmin[i].addEventListener('click', function(){
-            var chosedAdmin = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
-            // var chosedAdminAuthority = this.parentNode.parentNode.querySelector('option:checked').value;
-            // console.log(chosedAdmin, chosedAdminAuthority);
-            deleteAdmin(chosedAdmin);
-        });
-    };
+    // let btnDelAdmin = document.getElementsByClassName('btnDelAdmin');
+    // for(let i=0; i<btnDelAdmin.length; i++){
+    //     btnDelAdmin[i].addEventListener('click', function(){
+    //         var chosedAdmin = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
+    //         // var chosedAdminAuthority = this.parentNode.parentNode.querySelector('option:checked').value;
+    //         // console.log(chosedAdmin, chosedAdminAuthority);
+    //         deleteAdmin(chosedAdmin);
+    //     });
+    // };
 
-    let btnEditAdmin = document.getElementsByClassName('btnEditAdmin');
-    for(let j=0; j<btnEditAdmin.length; j++){
-        btnEditAdmin[j].addEventListener('click', function(){
-            var chosedAdminNo = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
-            var chosedAdminId = this.parentNode.parentNode.getElementsByClassName('adminId')[0].value;
-            var chosedAdminPsw = this.parentNode.parentNode.getElementsByClassName('adminPsw')[0].value;
-            var chosedAdminAuthority = this.parentNode.parentNode.querySelector('option:checked').value;
-            editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority);
-        });
-    };
+    // let btnEditAdmin = document.getElementsByClassName('btnEditAdmin');
+    // for(let j=0; j<btnEditAdmin.length; j++){
+    //     btnEditAdmin[j].addEventListener('click', function(){
+    //         var chosedAdminNo = this.parentNode.parentNode.querySelector('input[type=hidden]').id;
+    //         var chosedAdminId = this.parentNode.parentNode.getElementsByClassName('adminId')[0].value;
+    //         var chosedAdminPsw = this.parentNode.parentNode.getElementsByClassName('adminPsw')[0].value;
+    //         var chosedAdminAuthority = this.parentNode.parentNode.querySelector('option:checked').value;
+    //         editAdmin(chosedAdminNo, chosedAdminId, chosedAdminPsw, chosedAdminAuthority);
+    //     });
+    // };
 };
 
 window.addEventListener('load', doFirst);
