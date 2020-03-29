@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>後台管理系統 | 天然甘</title>
+  <!-- Icons-->
+  <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <!-- Main styles for this application-->
+  <link href="css/page/cms/cms.css" rel="stylesheet">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+ <!-- top_header -->
+ @@include('layout/top_header.html')
+  <div class="app-body">
+    <div class="sidebar">
+       <!-- sidebar  menu -->
+       @@include('layout/sidebar_nav.html')
+       <!-- sidebar  menu end -->
+    </div>
+    <main class="main">
+      <div class="container-fluid">
+   
+       <!-- 中間內容 -->
+       <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">訂單管理</div>
+            <div class="card-body">
+              <table class="table table-responsive-sm table-sm">
+                <thead>
+                  <tr>
+                    <th>訂單編號</th>
+                    <th>會員編號</th>
+                    <th>訂購日期</th>
+                    <th>總金額</th>
+                    <th>收件人</th>
+                    <th>收件地址</th>
+                    <th>收件人電話</th>
+                    <th>付款方式</th>
+                    <th>禮盒</th>
+                    <th>訂單狀態</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                  <!-- <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>2020-03-24</td>
+                    <td>300</td>
+                    <td>王曉明</td>
+                    <td>330桃園市桃園區國豐三街123號一樓</td>
+                    <td>0800000000</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                          <input class="switch-input question_status modified" type="checkbox" name="question_status" disabled="" value="1">
+                          <span class="switch-slider"></span>
+                      </label>
+                  </td>
+                  </tr> -->
+                    <td>
+                      <label class="switch switch-3d switch-danger">
+                          <input class="switch-input btnBlockArti" type="checkbox">
+                          <span class="switch-slider"></span>
+                      </label>
+                    </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+       </div>
+       <!-- end -->
+       
+      </div>
+    </main>
+  </div>
+  <footer class="app-footer">
+    <div>
+      <a href="#">天然甘</a>
+      <span>&copy; 2020</span>
+    </div>
+    <!-- <div class="ml-auto">
+      <span>Powered by</span>
+      <a href="https://coreui.io">CoreUI</a>
+    </div> -->
+  </footer>
+  <!-- CoreUI and necessary plugins-->
+  <script src="js/vendors/jquery/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/pace-progress/pace.min.js"></script>
+    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="js/cms_getLogin.js"></script>
+    <script src="js/cms_order_general.js"></script>
+</body>
+</html>
