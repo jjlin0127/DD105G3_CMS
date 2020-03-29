@@ -12,6 +12,7 @@
     "@coreui/coreui": "^2.1.12",
     "bootstrap": "^4.3.1",
     "bootstrap-sass": "^3.4.1",
+    "chart.js": "^2.9.3",
     "flag-icon-css": "^3.3.0",
     "font-awesome": "~4.7.0",
     "gsap": "^3.1.1",

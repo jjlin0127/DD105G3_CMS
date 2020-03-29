@@ -2,10 +2,10 @@
 try {
     require_once("connectHomeServer.php");
 
-    $sql = "select * from `administrator`";
-    $admins = $pdo->query($sql);
-    $adminRows = $admins->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($adminRows);
+    $sql = "select * from `order_general`";
+    $orders = $pdo->query($sql);
+    $orderRows = $orders->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($orderRows);
 
 } catch (PDOException $e) {
 	echo "錯誤行號 : " . $e->getLine() . "<br>";
