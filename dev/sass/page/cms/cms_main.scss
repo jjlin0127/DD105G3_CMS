@@ -25,6 +25,7 @@
 
 //alert
 .alertBox{
+    font-size: 16px;
     visibility: visible;
     opacity: 1;
     display: block;
@@ -144,7 +145,7 @@
     width: 22%;
 }
 
-//
+//fruitType
 .fruitTypeTable{
     width: 100%;
     display: inline-flex;
@@ -197,6 +198,55 @@
 }
 .fruitTypeTable div:nth-child(8){
     width: 10%;
+    text-align: center;
+}
+
+
+//boxMaterial
+.boxMaterialTable{
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.boxMaterialTable div{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.boxMaterialTable div:nth-child(1){
+    width: 10%;
+}
+.boxMaterialTable div:nth-child(2){
+    width: 21%;
+}
+.boxMaterialTable div:nth-child(3){
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.boxMaterialTable div:nth-child(4){
+    width: 13%;
+    text-align: center;
+    position: relative;
+
+    .onOffItem{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+.boxMaterialTable div:nth-child(5){
+    width: 13%;
+    text-align: center;
+}
+.boxMaterialTable div:nth-child(6){
+    width: 13%;
     text-align: center;
 }
 

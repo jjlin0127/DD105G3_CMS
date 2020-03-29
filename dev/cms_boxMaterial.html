@@ -9,6 +9,7 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/page/cms/cms.css" rel="stylesheet">
+  <link href="css/page/cms/cms_main.css" rel="stylesheet">
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -21,33 +22,76 @@
        <!-- sidebar  menu end -->
     </div>
     <main class="main">
-      <div class="container-fluid">
    
-       <!-- 中間內容 -->
-       <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">訂單管理</div>
-            <div class="card-body">
-              <table class="table table-responsive-sm table-sm">
-                <thead>
-                  <tr>
-                    <th>素材編號</th>
-                    <th>圖片名稱</th>
-                    <th>禮盒圖片路徑</th>
-                    <th>圖片上架狀態</th>
-                  </tr>
-                </thead>
-                <tbody id="tbody">
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <!-- 中間內容 -->
+      <div class="container-fluid">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">天然甘</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">客製禮盒素材管理</a>
+                    </li>
+                </ol>
+            </nav>
         </div>
-       </div>
-       <!-- end -->
-       
+        <div class="card">
+            <div class="card-header justify-content-end d-flex">
+              <button type="button" class="btn btn-warning mr-1" id="btn_add_item" >+新增素材種類</button>
+            </div>
+            <div class="card-body">
+              <form>
+                  <div class="boxMaterialTable">
+                    <div class="tableTitle">編號</div>
+                    <div class="tableTitle">圖片名稱</div>
+                    <div class="tableTitle">禮盒圖片</div>
+                    <div class="tableTitle">是否上架</div>
+                    <div class="tableTitle">編輯</div>
+                    <div class="tableTitle">刪除</div>
+                  </div>
+              </form>
+              <div id="boxMaterialWrapper">
+                <form id="boxMaterialForm">
+
+                </form>
+              </div>
+            </div>
+        </div>
       </div>
+      <!-- end -->
+      <!-- delete confirm popbox start -->
+      <div id="deleteConfirm" class="deleteConfirm hidden">
+        <h5>是否確定刪除</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_delete_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_delete_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
+      <!-- add confirm popbox start -->
+      <div id="addConfirm" class="addConfirm hidden">
+        <h5>是否確定新增</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_add_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_add_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
+      <!-- edit confirm popbox start -->
+      <div id="editConfirm" class="editConfirm hidden">
+        <h5>是否確定編輯</h5>
+          <div class="confirm_btns">
+            <span class="btn btn-pill btn-primary btn-xl" id="cancel_edit_btn">取消</span>
+            <button type="submit" class="btn btn-pill btn-danger btn-xl" id="submit_edit_btn">確定</button>
+          </div>
+      </div>
+      <!-- confirm end -->
+       <!-- alert start -->
+       @@include('layout/alert.html')
+       <!-- alert end -->
     </main>
   </div>
   <footer class="app-footer">
@@ -62,12 +106,12 @@
   </footer>
   <!-- CoreUI and necessary plugins-->
   <script src="js/vendors/jquery/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/pace-progress/pace.min.js"></script>
-    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <script src="js/cms_getLogin.js"></script>
-    <script src="js/cms_boxMaterial.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/pace-progress/pace.min.js"></script>
+  <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+  <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  <script src="js/cms_getLogin.js"></script>
+  <script src="js/cms_boxMaterial.js"></script>
 </body>
 </html>
