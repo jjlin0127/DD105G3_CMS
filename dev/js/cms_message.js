@@ -124,7 +124,6 @@ function setMesBlockStatus(reportMesNo, reportStatus){
     xhr.onload = function(){
         if(xhr.status == 200){
             if(mesStatus == "0"){
-                addConfirm.classList.add('hidden');
                 alertBox.classList.remove('hidden');
                 alertMessage.innerText = '已屏蔽該留言！';
                 
@@ -134,7 +133,6 @@ function setMesBlockStatus(reportMesNo, reportStatus){
                 // alert("已屏蔽該留言");
                 loadReportMessage();
             }else if(mesStatus == "1"){
-                addConfirm.classList.add('hidden');
                 alertBox.classList.remove('hidden');
                 alertMessage.innerText = '已解除屏蔽該留言！';
                 

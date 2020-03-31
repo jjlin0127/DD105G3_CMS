@@ -7,6 +7,9 @@ function getBoxImg(){
             var boxOriArr = JSON.parse(xhr.responseText);
             // deep copy
             boxArrCopy = JSON.parse(JSON.stringify(boxOriArr));
+            boxArrCopy.sort(function(a, b){
+                return b.boxImgNo - a.boxImgNo;
+            });
             // console.log(adminArrCopy);
             readInbox(boxArrCopy);
         // }else{

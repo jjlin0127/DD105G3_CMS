@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectHomeServerr.php");
+	require_once("connectDeskServer.php");
 
     $sql = "update `administrator` set adminId = :adminId, adminPsw = :adminPsw, adminAuthority = :adminAuthority 
             where (adminNo = :adminNo)";

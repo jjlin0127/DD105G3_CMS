@@ -7,6 +7,9 @@ function loadFruitType(){
             var fruitOriArr = JSON.parse(xhr.responseText);
             // deep copy
             fruitArrCopy = JSON.parse(JSON.stringify(fruitOriArr));
+            fruitArrCopy.sort(function(a, b){
+                return b.fruitTypeNo - a.fruitTypeNo;
+            });
             // console.log(adminArrCopy);
             readInFruitType(fruitArrCopy);
         // }else{

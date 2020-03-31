@@ -1,6 +1,6 @@
 <?php 
 try {
-    require_once("connectHomeServer.php");
+    require_once("connectDeskServer.php");
 		
 	$sql = "update `fruit_type` set healthyType = :healthyType, fruitTypeName = :fruitTypeName, fruitUnitPrice = :fruitUnitPrice, fruitTypeStatus = :fruitTypeStatus where (fruitTypeNo = :fruitTypeNo)";
         $fruit = $pdo->prepare( $sql);

@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectHomeServer.php");
+    require_once("connectDeskServer.php");
 
     $sql = "select * from `message_report` join `message` 
             on (message_report.messageNo = message.messageNo)";

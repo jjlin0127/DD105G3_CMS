@@ -7,6 +7,9 @@ function loadAdminData(){
             var adminOriArr = JSON.parse(xhr.responseText);
             // deep copy
             adminArrCopy = JSON.parse(JSON.stringify(adminOriArr));
+            adminArrCopy.sort(function(a, b){
+                return b.adminNo - a.adminNo;
+            });
             // console.log(adminArrCopy);
             readInAdmin(adminArrCopy);
         // }else{

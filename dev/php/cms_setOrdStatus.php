@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectHomeServer.php");
+	require_once("connectDeskServer.php");
 
     $sql = "update `order_general` set ordStatus = :ordStatus 
             where (ordNo = :ordNo)";

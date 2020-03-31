@@ -1,6 +1,6 @@
 <?php
 try {
-    require_once("connectHomeServer.php");
+    require_once("connectDeskServer.php");
 
     $sql = "select * from `boximg`";
     $boxes = $pdo->query($sql);

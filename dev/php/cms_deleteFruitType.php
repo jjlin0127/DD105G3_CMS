@@ -1,6 +1,6 @@
 <?php 
 try {
-	require_once("connectHomeServer.php");
+	require_once("connectDeskServer.php");
 
 	$sql = "DELETE FROM `fruit_type` where (fruitTypeNo = :fruitTypeNo)";
 	$fruit = $pdo->prepare($sql);

@@ -81,9 +81,3 @@ var myPieChart = new Chart(ctx, {
         },
     },
 });
-
-function beforePrintHandler () {
-    for (var ctx in Chart.instances) {
-        Chart.instances[ctx].resize();
-    }
-}

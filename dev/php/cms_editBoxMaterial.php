@@ -1,6 +1,6 @@
 <?php 
 try {
-    require_once("connectHomeServer.php");
+    require_once("connectDeskServer.php");
 		
 	$sql = "update `boximg` set boxImgName = :boxImgName, boxImgStatus = :boxImgStatus where (boxImgNo = :boxImgNo)";
         $boxImg = $pdo->prepare( $sql);

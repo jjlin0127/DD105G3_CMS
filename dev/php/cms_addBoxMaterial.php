@@ -1,6 +1,6 @@
 <?php 
 try {
-    require_once("connectHomeServer.php");
+    require_once("connectDeskServer.php");
     $pdo->beginTransaction();
 
 	if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
