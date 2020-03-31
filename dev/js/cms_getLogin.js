@@ -41,7 +41,7 @@ function cms_getLoginInfo(){
 
     if(sessionStorage.getItem('adminAuthority') == "2"){
       document.getElementById('adminNav').classList.add('noAuthority');
-      document.getElementById('adminNav').nextElementSibling.classList.add('noAuthority');
+      // document.getElementById('adminNav').nextElementSibling.classList.add('noAuthority');
     };
 
     if(sessionStorage.getItem('adminNo') == null){
