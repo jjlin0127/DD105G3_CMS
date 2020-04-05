@@ -98,6 +98,9 @@ function readInReportMes(reportMesArr){
                 ${mes.messageNo}
             </td>
             <td>
+                ${mes.memNo}
+            </td>
+            <td>
                 <div class="postContent">
                     ${mes.mesText}
                 </div>

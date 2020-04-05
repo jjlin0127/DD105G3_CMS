@@ -98,6 +98,9 @@ function readInReportArti(reportArtiArr){
                 ${arti.articleNo}
             </td>
             <td>
+                ${arti.memNo}
+            </td>
+            <td>
                 <div class="postContent">
                     ${arti.artText}
                 </div>
