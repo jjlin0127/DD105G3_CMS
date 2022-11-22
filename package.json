@@ -39,6 +39,6 @@
     "jshint": "^2.11.0",
     "node-sass": "^4.13.1",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   }
 }
